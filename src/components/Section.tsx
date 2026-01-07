@@ -2,7 +2,6 @@ interface SectionProps {
   title?: string;
   text?: string;
   image?: string;
-  imagePosition?: 'left' | 'right';
   children?: React.ReactNode;
   className?: string;
   variant?: 'primary' | 'secondary';
@@ -12,7 +11,6 @@ export default function Section({
   title,
   text,
   image,
-  imagePosition = 'right',
   children,
   className = '',
   variant = 'primary',
