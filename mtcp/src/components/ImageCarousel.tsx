@@ -31,11 +31,11 @@ export default function ImageCarousel({ images, interval = 5000, className = '' 
 
   return (
     <div
-      className={`relative w-full overflow-hidden ${className}`}
+      className={`flex relative w-full flex-col overflow-hidden ${className}`}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="relative h-[400px] md:h-[600px]">
+      <div className="flex relative w-full h-[400px] md:h-[600px] flex-col">
         {images.map((image, index) => (
           <div
             key={index}
@@ -53,12 +53,12 @@ export default function ImageCarousel({ images, interval = 5000, className = '' 
       </div>
 
       {/* Indicators */}
-      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
+      <div className="flex absolute bottom-4 left-1/2 -translate-x-1/2 items-center justify-center gap-2">
         {images.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-2 w-2 rounded-full transition-all ${
+            className={`flex h-2 w-2 rounded-full transition-all items-center justify-center ${
               index === currentIndex
                 ? 'bg-white w-8'
                 : 'bg-white/50 hover:bg-white/75'

@@ -54,25 +54,38 @@ export default function SocialMediaLinks({
   }
 
   return (
-    <section className={`bg-gray-50 py-12 md:py-16 ${className}`}>
-      <div className="max-w-page mx-auto w-full px-6">
-        <h2 className="mb-8 text-center font-albert text-2xl font-semibold text-black md:text-3xl">
-          Follow Us
-        </h2>
-        <div className="flex justify-center gap-6">
-          {socialLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-gray-600 transition-colors hover:bg-accent-500 hover:text-white"
-              aria-label={`Follow us on ${link.name}`}
-            >
-              {link.icon}
-            </a>
-          ))}
-        </div>
+    <section
+      className={`bg-gray-50 ${className}`}
+      style={{ padding: '64px 32px', textAlign: 'center' }}
+    >
+      <h2
+        className="font-albert text-2xl font-semibold text-black md:text-3xl"
+        style={{ marginBottom: '32px' }}
+      >
+        Follow Us
+      </h2>
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '24px' }}>
+        {socialLinks.map((link) => (
+          <a
+            key={link.name}
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-600 transition-colors hover:bg-accent-500 hover:text-white"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '48px',
+              height: '48px',
+              borderRadius: '9999px',
+              backgroundColor: 'white',
+            }}
+            aria-label={`Follow us on ${link.name}`}
+          >
+            {link.icon}
+          </a>
+        ))}
       </div>
     </section>
   );

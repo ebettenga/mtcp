@@ -10,7 +10,7 @@ const dropdownMenuItems = [
   { label: 'Home', path: '/' },
   { label: 'About Us', path: '/about-us' },
   { label: 'Photos', path: '/photos' },
-  { label: 'Joining', path: '/joining' },
+  { label: 'Join', path: '/joining' },
   { label: 'Links', path: '/links' },
 ];
 
@@ -122,11 +122,12 @@ export default function Header({ className = '' }: HeaderProps) {
     <>
       {/* Mobile Header */}
       <nav
-        className={`md:hidden fixed left-0 right-0 top-0 z-[60] flex h-[76px] items-center justify-between border-b ${
+        className={`md:hidden fixed left-0 right-0 top-0 z-[60] flex w-full h-[76px] items-center justify-between border-b ${
           isMobileMenuOpen ? 'border-gray-200' : 'border-gray-100'
-        } bg-white px-[30px] ${className}`}
+        } bg-white ${className}`}
+        style={{ padding: '0 32px' }}
       >
-        <div className="h-[46px] w-[165px] cursor-pointer" onClick={handleHomeClick}>
+        <div className="flex h-[46px] w-[165px] items-center cursor-pointer" onClick={handleHomeClick}>
           <img src={logo} alt="Logo" className="h-full w-auto" style={{ imageRendering: 'auto' }} />
         </div>
         <button
@@ -147,9 +148,9 @@ export default function Header({ className = '' }: HeaderProps) {
       </nav>
 
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 top-[76px] z-[50] bg-white md:hidden" ref={mobileMenuRef}>
-          <div className="flex h-[calc(100vh-76px)] flex-col overflow-y-auto">
-            <div className="flex flex-col gap-4 px-[30px] pt-6">
+        <div className="flex fixed inset-0 top-[76px] z-[50] bg-white md:hidden" ref={mobileMenuRef}>
+          <div className="flex h-[calc(100vh-76px)] w-full flex-col overflow-y-auto">
+            <div className="flex w-full flex-col gap-4 px-[30px] pt-6">
               <MobileMenuItem
                 label="Events"
                 onClick={() => handleMenuItemClick('/events')}
@@ -163,8 +164,8 @@ export default function Header({ className = '' }: HeaderProps) {
               />
               <Divider />
 
-              <div className="flex flex-col gap-3">
-                <div className="py-2.5">
+              <div className="flex w-full flex-col gap-3">
+                <div className="flex py-2.5">
                   <span className="font-open text-[20px] font-bold leading-[40px] text-black">Pages</span>
                 </div>
                 {dropdownMenuItems.map((item) => (
@@ -189,9 +190,10 @@ export default function Header({ className = '' }: HeaderProps) {
 
       {/* Desktop Header */}
       <nav
-        className={`hidden md:flex h-[100px] items-center border-b border-gray-100 bg-white px-6 py-6 ${className}`}
+        className={`hidden md:flex w-full h-[100px] items-center border-b border-gray-100 bg-white ${className}`}
+        style={{ padding: '0 32px' }}
       >
-        <div className="max-w-page flex w-full items-center justify-between gap-5 mx-auto">
+        <div className="flex max-w-page w-full items-center justify-between gap-8 mx-auto">
           <div className="flex items-center gap-8">
             <div className="flex h-12 items-center cursor-pointer" onClick={handleHomeClick}>
               <img src={logo} alt="Logo" className="h-12 w-auto" style={{ imageRendering: 'auto' }} />
@@ -199,18 +201,18 @@ export default function Header({ className = '' }: HeaderProps) {
             <div className="flex h-8 items-center gap-8">
               <button
                 onClick={handleHomeClick}
-                className={`relative rounded-md px-0 py-0 font-albert text-xl leading-5 text-black transition-opacity hover:opacity-80 ${
+                className={`flex relative rounded-md px-0 py-0 font-albert text-xl leading-5 text-black transition-opacity hover:opacity-80 ${
                   isHomeActive ? 'font-bold' : 'font-semibold'
                 } ${isHomeActive ? activeLinkClass : ''}`}
               >
                 Home
               </button>
-              <div ref={discoverRef} className="relative">
+              <div ref={discoverRef} className="flex relative">
                 <button
                   onClick={handleDiscoverToggle}
-                  className={`relative flex items-center gap-1.5 px-0 py-0 font-albert text-xl leading-5 text-black transition-opacity hover:opacity-80 ${
+                  className={`flex relative items-center gap-1.5 px-0 py-0 font-albert text-xl leading-5 text-black transition-opacity hover:opacity-80 ${
                     isDiscoverActive ? 'font-bold' : 'font-semibold'
-                  } ${!isDiscoverOpen && isDiscoverActive ? activeLinkClass : ''}`}
+                  }`}
                 >
                   Pages
                   <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -218,29 +220,28 @@ export default function Header({ className = '' }: HeaderProps) {
                   </svg>
                 </button>
                 {isDiscoverOpen && (
-                  <div className="absolute left-0 top-full z-10 mt-2 w-[343px] rounded-xl border border-gray-200 bg-white p-2">
-                    <div className="flex flex-col gap-1.5">
-                      {dropdownMenuItems.map((item) => (
-                        <button
-                          key={item.path}
-                          onClick={() => handleMenuItemClick(item.path)}
-                          className="group flex h-8 cursor-pointer items-center gap-1.5 rounded-lg px-2 py-2 text-left transition-colors hover:bg-gray-200"
-                        >
-                          <span
-                            className="font-open text-sm font-medium leading-[14px] text-gray-600 transition-colors group-hover:text-primary-500"
-                            style={{ fontStyle: 'normal' }}
-                          >
-                            {item.label}
-                          </span>
-                        </button>
-                      ))}
-                    </div>
+                  <div
+                    className="absolute left-0 top-full z-10 mt-3 w-[220px] flex-col rounded-xl border border-gray-200 bg-white"
+                    style={{ padding: '16px 0', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+                  >
+                    {dropdownMenuItems.map((item) => (
+                      <button
+                        key={item.path}
+                        onClick={() => handleMenuItemClick(item.path)}
+                        className="group w-full cursor-pointer text-left transition-colors hover:bg-gray-100"
+                        style={{ padding: '12px 24px', display: 'block' }}
+                      >
+                        <span className="font-open text-base font-medium text-gray-600 transition-colors group-hover:text-primary-500">
+                          {item.label}
+                        </span>
+                      </button>
+                    ))}
                   </div>
                 )}
               </div>
               <button
                 onClick={() => handleMenuItemClick('/events')}
-                className={`relative rounded-md px-0 py-0 font-albert text-xl leading-5 text-black transition-opacity hover:opacity-80 ${
+                className={`flex relative rounded-md px-0 py-0 font-albert text-xl leading-5 text-black transition-opacity hover:opacity-80 ${
                   isEventsActive ? 'font-bold' : 'font-semibold'
                 } ${isEventsActive ? activeLinkClass : ''}`}
               >
@@ -248,7 +249,7 @@ export default function Header({ className = '' }: HeaderProps) {
               </button>
               <button
                 onClick={() => handleMenuItemClick('/donations')}
-                className={`relative rounded-md px-0 py-0 font-albert text-xl leading-5 text-black transition-opacity hover:opacity-80 ${
+                className={`flex relative rounded-md px-0 py-0 font-albert text-xl leading-5 text-black transition-opacity hover:opacity-80 ${
                   isDonateActive ? 'font-bold' : 'font-semibold'
                 } ${isDonateActive ? activeLinkClass : ''}`}
               >
@@ -256,14 +257,21 @@ export default function Header({ className = '' }: HeaderProps) {
               </button>
             </div>
           </div>
-          <div className="flex items-center gap-5">
-            <button
-              onClick={handleContactClick}
-              className="flex items-center justify-center gap-1.5 rounded-full bg-gray-100 px-4 py-2.5 transition-colors hover:bg-gray-200"
-            >
-              <span className="font-albert text-base font-medium leading-5 text-primary-500">Contact Us</span>
-            </button>
-          </div>
+          <button
+            onClick={handleContactClick}
+            className="font-albert text-base font-semibold rounded-full transition-colors"
+            style={{
+              padding: '14px 32px',
+              backgroundColor: '#57944f',
+              color: 'white',
+              border: 'none',
+              cursor: 'pointer',
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#467a3f'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#57944f'; }}
+          >
+            Contact Us
+          </button>
         </div>
       </nav>
     </>

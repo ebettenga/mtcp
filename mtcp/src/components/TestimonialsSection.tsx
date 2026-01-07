@@ -24,12 +24,11 @@ export default function TestimonialsSection({
     setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
       setIsVisible(true);
-    }, 300); // Half of transition duration for smooth fade
+    }, 300);
   }, [testimonials.length]);
 
   useEffect(() => {
     if (testimonials.length === 0) return;
-
     const timer = setInterval(nextTestimonial, interval);
     return () => clearInterval(timer);
   }, [interval, nextTestimonial, testimonials.length]);
@@ -41,49 +40,53 @@ export default function TestimonialsSection({
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className={`bg-white py-12 md:py-16 ${className}`}>
-      <div className="max-w-page mx-auto w-full px-6">
-        <h2 className="mb-12 text-center font-albert text-2xl font-semibold text-black md:text-3xl">
-          What People Say
-        </h2>
-        <div className="mx-auto max-w-3xl flex flex-col items-center">
-          <div
-            className={`transition-opacity duration-600 w-full ${
-              isVisible ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <blockquote className="text-center">
-              <p className="mb-6 font-open text-lg leading-7 text-gray-700 md:text-xl">
-                "{currentTestimonial.text}"
-              </p>
-              <footer className="font-albert text-base font-semibold text-primary-500 text-center">
-                — {currentTestimonial.name}
-              </footer>
-            </blockquote>
-          </div>
-
-          {/* Indicators */}
-          <div className="mt-8 flex justify-center gap-2">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  setIsVisible(false);
-                  setTimeout(() => {
-                    setCurrentIndex(index);
-                    setIsVisible(true);
-                  }, 300);
-                }}
-                className={`h-2 w-2 rounded-full transition-all ${
-                  index === currentIndex
-                    ? 'bg-primary-500 w-8'
-                    : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-                aria-label={`Go to testimonial ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
+    <section
+      className={className}
+      style={{ padding: '64px 32px', textAlign: 'center', backgroundColor: '#fff5f2' }}
+    >
+      <h2
+        className="font-albert text-2xl font-semibold md:text-3xl"
+        style={{ marginBottom: '48px', color: '#1f2937' }}
+      >
+        What People Say
+      </h2>
+      <div
+        className={`transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+        style={{ marginBottom: '32px' }}
+      >
+        <p
+          className="font-open text-lg leading-7 text-gray-700 md:text-xl"
+          style={{ marginBottom: '24px' }}
+        >
+          "{currentTestimonial.text}"
+        </p>
+        <footer className="font-albert text-base font-semibold text-primary-500">
+          — {currentTestimonial.name}
+        </footer>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '8px' }}>
+        {testimonials.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => {
+              setIsVisible(false);
+              setTimeout(() => {
+                setCurrentIndex(index);
+                setIsVisible(true);
+              }, 300);
+            }}
+            style={{
+              width: index === currentIndex ? '32px' : '8px',
+              height: '8px',
+              borderRadius: '9999px',
+              backgroundColor: index === currentIndex ? '#57944f' : '#d1d5db',
+              border: 'none',
+              cursor: 'pointer',
+              transition: 'all 0.3s',
+            }}
+            aria-label={`Go to testimonial ${index + 1}`}
+          />
+        ))}
       </div>
     </section>
   );

@@ -5,26 +5,28 @@ import SocialMediaLinks from '../components/SocialMediaLinks';
 import TestimonialsSection from '../components/TestimonialsSection';
 
 export default function Home() {
-  // Example images for carousel - replace with actual images
   const carouselImages = [
     'https://images.unsplash.com/photo-1534158914592-062992fbe900?w=1200&h=600&fit=crop',
     'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=1200&h=600&fit=crop',
     'https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=1200&h=600&fit=crop',
   ];
 
-  // Example testimonials - replace with actual testimonials
   const testimonials = [
     {
-      text: 'Clay courts are perfect for learning tennis - the slower surface gives kids more time to react and build confidence.',
-      name: 'Youth Program Director',
+      text: 'MTPC has given me regular competitive tennis and amazing friendships. The mentorship opportunities have been incredible.',
+      name: 'MTPC Member',
     },
     {
-      text: 'Having public clay courts means my kids can experience the same quality tennis surface they\'d only find at expensive private clubs.',
-      name: 'Community Member',
+      text: 'Playing with Kenny Tenny keeps me active and connected. The community support is unmatched.',
+      name: 'MTPC Member',
     },
     {
-      text: 'The Waveland courts have been amazing. I\'m so excited to see these same courts come to south Minneapolis.',
-      name: 'Tennis Player',
+      text: 'The mentorship I\'ve received through MTPC has helped me both on and off the court.',
+      name: 'MTPC Member',
+    },
+    {
+      text: 'I love that we give back to the community while playing the sport we love.',
+      name: 'MTPC Member',
     },
   ];
 
@@ -36,22 +38,21 @@ export default function Home() {
 
         {/* Mission Section */}
         <Section
-          title="Bringing Public Clay Tennis Courts to South Minneapolis"
-          text="Two new clay tennis courts coming to Minnehaha Parkway Regional Trail in 2026. These courts will replace the previous unplayable asphalt courts and provide a unique public amenity for the south Minneapolis community."
-          imagePosition="right"
+          title="Tennis is What We Are, Fun is How We Do It"
+          text="Minnesota Tennis Players Council (MTPC), affectionately known as 'Kenny Tenny,' is a community-driven adult tennis collective serving the Twin Cities. We're a vibrant community of approximately 100 participants, ages 25–65, who come together year-round to play competitive tennis, build relationships, and uplift the broader tennis community."
         />
 
-        {/* Why Clay Courts Section */}
+        {/* Programs Section */}
         <Section
-          title="Why Clay Courts?"
-          text="Clay courts create a slower game with greater reaction times, making them ideal for youth learning tennis. Clay courts are usually only found at private clubs, making them inaccessible to most people. These courts will be free and open to the community."
-          imagePosition="left"
+          title="Year-Round Competitive Tennis"
+          text="Play tennis 4–6 days per week across all seasons. From summer doubles sessions and USTA leagues to winter indoor play and performance sessions with juniors, MTPC offers diverse opportunities for competitive tennis year-round. Summer programming includes Tuesday/Thursday doubles sessions at 4.5–5.0 level, weekly grill outs, and USTA team leagues. Winter brings indoor tennis and league play at local clubs."
+          variant="secondary"
         />
 
-        {/* Community Impact Section */}
+        {/* Community Section */}
         <Section
-          title="Community Impact"
-          text="Over 20,500 young people under 18 in south Minneapolis neighborhoods will have access to these courts. Located near bus routes, bike lanes, and walking/biking trails with free street parking available. Free general use for anyone, with youth and senior programs planned."
+          title="More Than Tennis — A Community"
+          text="MTPC is more than just tennis—it's a community that supports each other and gives back. Through mentorship, charitable activities, and financial support for players in need, we're building a stronger tennis ecosystem in Minnesota. We actively support Inner City Tennis, Saint Paul Urban Tennis, and provide league fee subsidies, equipment, and racquet stringing services to ensure cost is never a barrier to participation."
         />
 
         {/* Testimonials */}
