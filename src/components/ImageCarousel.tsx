@@ -31,37 +31,39 @@ export default function ImageCarousel({ images, interval = 5000, className = '' 
 
   return (
     <div
-      className={`flex relative w-full flex-col overflow-hidden ${className}`}
+      className={`relative w-full flex flex-col overflow-hidden ${className}`}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="flex relative w-full h-[400px] md:h-[600px] flex-col">
+      <div className="relative w-full h-[400px] md:h-[600px]">
         {images.map((image, index) => (
           <div
             key={index}
             className={`absolute inset-0 transition-opacity duration-500 ${
-              index === currentIndex ? 'opacity-100' : 'opacity-0'
+              index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
             }`}
           >
             <img
               src={image}
               alt={`Slide ${index + 1}`}
               className="h-full w-full object-cover"
+              loading={index === 0 ? 'eager' : 'lazy'}
             />
           </div>
         ))}
       </div>
 
       {/* Indicators */}
-      <div className="flex absolute bottom-4 left-1/2 -translate-x-1/2 items-center justify-center gap-2">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center justify-center gap-2 z-20">
         {images.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`flex h-2 w-2 rounded-full transition-all items-center justify-center ${
+            type="button"
+            className={`h-2 rounded-full transition-all ${
               index === currentIndex
                 ? 'bg-white w-8'
-                : 'bg-white/50 hover:bg-white/75'
+                : 'bg-white/50 hover:bg-white/75 w-2'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />

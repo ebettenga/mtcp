@@ -8,14 +8,12 @@ import Donations from './pages/Donations';
 import Joining from './pages/Joining';
 import Links from './pages/Links';
 
-const basename = import.meta.env.BASE_URL;
-
 function App() {
   return (
-    <BrowserRouter basename={basename}>
+    <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/mtpc" element={<Home />} />
         <Route path="/events" element={<Events />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/photos" element={<Photos />} />
