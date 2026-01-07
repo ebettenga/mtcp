@@ -8,9 +8,11 @@ import Donations from './pages/Donations';
 import Joining from './pages/Joining';
 import Links from './pages/Links';
 
+const basename = import.meta.env.BASE_URL;
+
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
