@@ -88,8 +88,7 @@ export default function Header({ className = '' }: HeaderProps) {
   }, [navigate]);
 
   const handleContactClick = useCallback(() => {
-    // TODO: Implement contact functionality
-    console.log('Contact Us clicked');
+    window.location.href = 'mailto:mtpctennis@gmail.com';
   }, []);
 
   const activeLinkClass =

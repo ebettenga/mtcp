@@ -40,6 +40,21 @@ export default function Joining() {
           <p className="font-open text-base leading-7 text-white" style={{ marginBottom: '24px' }}>
             Experience tennis, mentorship, and friendship. Contact us to learn more about joining MTPC and becoming part of Minnesota's premier adult tennis community.
           </p>
+          <a
+            href="mailto:mtpctennis@gmail.com"
+            className="font-albert text-base font-semibold rounded-full transition-colors inline-block"
+            style={{
+              padding: '14px 32px',
+              backgroundColor: 'white',
+              color: '#57944f',
+              textDecoration: 'none',
+              cursor: 'pointer',
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#f3f4f6'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'white'; }}
+          >
+            Email Us to Join
+          </a>
         </Section>
       </div>
     </div>
