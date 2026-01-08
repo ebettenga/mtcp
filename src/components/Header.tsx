@@ -189,7 +189,7 @@ export default function Header({ className = '' }: HeaderProps) {
 
       {/* Desktop Header */}
       <nav
-        className={`hidden md:flex w-full h-[100px] items-center border-b border-gray-100 bg-white ${className}`}
+        className={`hidden md:flex fixed left-0 right-0 top-0 z-[60] w-full h-[100px] items-center border-b border-gray-100 bg-white ${className}`}
         style={{ padding: '0 32px' }}
       >
         <div className="flex max-w-page w-full items-center justify-between gap-8 mx-auto">
@@ -220,7 +220,7 @@ export default function Header({ className = '' }: HeaderProps) {
                 </button>
                 {isDiscoverOpen && (
                   <div
-                    className="absolute left-0 top-full z-10 mt-3 w-[220px] flex-col rounded-xl border border-gray-200 bg-white"
+                    className="absolute left-0 top-full z-[100] mt-3 w-[220px] flex-col rounded-xl border border-gray-200 bg-white"
                     style={{ padding: '16px 0', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
                   >
                     {dropdownMenuItems.map((item) => (
