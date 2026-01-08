@@ -1,10 +1,14 @@
 import { useState } from "react";
-import { Gallery, type Image } from "react-grid-gallery";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import Section from "../components/Section";
 
-interface GalleryImage extends Image {
+interface GalleryImage {
+  src: string;
   original: string;
+  width: number;
+  height: number;
+  caption?: string;
 }
 
 // Example images using picsum.photos
@@ -165,24 +169,43 @@ export default function Photos() {
   }));
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">
-          Photo Gallery
-        </h1>
-        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-          Browse through our collection of memories from events, tournaments,
-          and club activities.
-        </p>
+    <div className="min-h-screen bg-gray-50">
+      {/* Header Section */}
+      <div className="pt-[76px] md:pt-[100px]">
+        <Section
+          title="Photo Gallery"
+          text="Browse through our collection of memories from events, tournaments, and club activities."
+        />
+      </div>
+
+      {/* Gallery Section */}
+      <div className="container mx-auto px-4 py-12 md:py-16">
 
         <div className="max-w-6xl mx-auto">
-          <Gallery
-            images={images}
-            onClick={(index) => handleClick(index)}
-            enableImageSelection={false}
-            rowHeight={220}
-            margin={4}
-          />
+          <div className="columns-2 md:columns-3 lg:columns-4 gap-2 md:gap-4">
+            {images.map((image, index) => {
+              return (
+                <div
+                  key={index}
+                  className="relative overflow-hidden rounded-lg cursor-pointer group mb-2 md:mb-4 break-inside-avoid"
+                  onClick={() => handleClick(index)}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.caption || `Photo ${index + 1}`}
+                    className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 pointer-events-none" />
+                  {image.caption && (
+                    <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                      <p className="text-white text-sm">{image.caption}</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         <Lightbox

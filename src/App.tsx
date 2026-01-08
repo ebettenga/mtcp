@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Events from './pages/Events';
@@ -8,9 +8,12 @@ import Donations from './pages/Donations';
 import Joining from './pages/Joining';
 import Links from './pages/Links';
 
+// Get base path from import.meta.env for Vite
+const base = import.meta.env.BASE_URL || '/';
+
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={base}>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -20,6 +23,7 @@ function App() {
         <Route path="/donations" element={<Donations />} />
         <Route path="/joining" element={<Joining />} />
         <Route path="/links" element={<Links />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );
