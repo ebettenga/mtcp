@@ -3,13 +3,11 @@ import ImageCarousel from '../components/ImageCarousel';
 import SponsorsBanner from '../components/SponsorsBanner';
 import SocialMediaLinks from '../components/SocialMediaLinks';
 import TestimonialsSection from '../components/TestimonialsSection';
+import mtpc1 from '../assets/images/MTPC 1.jpg';
+import mtpc2 from '../assets/images/MTPC 2.jpg';
 
 export default function Home() {
-  const carouselImages = [
-    'https://images.unsplash.com/photo-1534158914592-062992fbe900?w=1200&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=1200&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=1200&h=600&fit=crop',
-  ];
+  const carouselImages = [mtpc1, mtpc2];
 
   const testimonials = [
     {
