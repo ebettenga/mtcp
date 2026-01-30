@@ -15,16 +15,18 @@ function App() {
   return (
     <BrowserRouter basename={base}>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/photos" element={<Photos />} />
-        <Route path="/donations" element={<Donations />} />
-        <Route path="/joining" element={<Joining />} />
-        <Route path="/links" element={<Links />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/photos" element={<Photos />} />
+          <Route path="/donations" element={<Donations />} />
+          <Route path="/joining" element={<Joining />} />
+          <Route path="/links" element={<Links />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </main>
     </BrowserRouter>
   );
 }

@@ -3,8 +3,7 @@ import Section from '../components/Section';
 export default function Joining() {
   return (
     <div className="min-h-screen">
-      <div className="pt-[76px] md:pt-[100px]">
-        {/* Hero */}
+      {/* Hero */}
         <Section title="Join Kenny Tenny">
           <p className="font-open text-base leading-7 text-white" style={{ marginBottom: '24px' }}>
             Join approximately 100 players, ages 25–65, who come together year-round to play competitive tennis, build relationships, and uplift the broader tennis community. Whether you're looking for regular competitive play, mentorship opportunities, or a welcoming tennis community, MTPC offers something for advanced players at the 4.5–5.0 level.
@@ -56,7 +55,6 @@ export default function Joining() {
             Email Us to Join
           </a>
         </Section>
-      </div>
     </div>
   );
 }

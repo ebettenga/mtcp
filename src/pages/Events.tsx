@@ -3,8 +3,7 @@ import Section from '../components/Section';
 export default function Events() {
   return (
     <div className="min-h-screen">
-      <div className="pt-[76px] md:pt-[100px]">
-        {/* Hero */}
+      {/* Hero */}
         <Section title="Events & Programming">
           <p className="font-open text-base leading-7 text-white" style={{ marginBottom: '24px' }}>
             Join us for regular doubles sessions, league play, and community events. From summer grill outs to winter indoor play, there's always something happening at Kenny Tenny. Group trips to regional and national tournaments—join the adventure!
@@ -81,7 +80,6 @@ export default function Events() {
             Show your Kenny Tenny pride! Event t-shirts are available for fundraising events and special occasions. Contact us to learn more about getting your MTPC gear.
           </p>
         </Section>
-      </div>
     </div>
   );
 }

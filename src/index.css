@@ -33,6 +33,10 @@
 
   /* Spacing */
   --spacing-page: 1280px;
+  
+  /* Header Height */
+  --spacing-header-mobile: 76px;
+  --spacing-header-desktop: 100px;
 }
 
 /* Base styles */
@@ -51,6 +55,27 @@ body {
 /* Custom utility classes */
 .max-w-page {
   max-width: var(--spacing-page);
+}
+
+.main-content {
+  padding-top: 76px;
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    padding-top: 100px;
+  }
+}
+
+/* Scroll margin for anchor navigation with fixed header */
+[id] {
+  scroll-margin-top: 76px;
+}
+
+@media (min-width: 768px) {
+  [id] {
+    scroll-margin-top: 100px;
+  }
 }
 
 .font-albert {

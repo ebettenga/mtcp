@@ -171,12 +171,10 @@ export default function Photos() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
-      <div className="pt-[76px] md:pt-[100px]">
-        <Section
-          title="Photo Gallery"
-          text="Browse through our collection of memories from events, tournaments, and club activities."
-        />
-      </div>
+      <Section
+        title="Photo Gallery"
+        text="Browse through our collection of memories from events, tournaments, and club activities."
+      />
 
       {/* Gallery Section */}
       <div className="container mx-auto px-4 py-12 md:py-16">

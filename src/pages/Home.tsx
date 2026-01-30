@@ -32,7 +32,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      <div className="pt-[76px] md:pt-[100px]">
         {/* Hero Carousel */}
         <ImageCarousel images={carouselImages} />
 
@@ -67,7 +66,6 @@ export default function Home() {
           facebookUrl="https://facebook.com"
           tiktokUrl="https://tiktok.com"
         />
-      </div>
     </div>
   );
 }

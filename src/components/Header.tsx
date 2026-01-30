@@ -6,12 +6,11 @@ interface HeaderProps {
   className?: string;
 }
 
-const dropdownMenuItems = [
-  { label: 'Home', path: '/' },
-  { label: 'About Us', path: '/about-us' },
-  { label: 'Photos', path: '/photos' },
-  { label: 'Join', path: '/joining' },
-  { label: 'Links', path: '/links' },
+const aboutUsMenuItems = [
+  { label: 'Who We Are', path: '/about-us#who-we-are' },
+  { label: 'Community Impact', path: '/about-us#community-impact' },
+  { label: 'Board of Directors', path: '/about-us#leadership' },
+  { label: 'Partners', path: '/about-us#partners' },
 ];
 
 export default function Header({ className = '' }: HeaderProps) {
@@ -23,12 +22,12 @@ export default function Header({ className = '' }: HeaderProps) {
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const hamburgerButtonRef = useRef<HTMLButtonElement>(null);
 
-  const isDiscoverActive = dropdownMenuItems.some(
-    (item) => location.pathname === item.path || location.pathname.startsWith(item.path + '/')
-  );
+  const isAboutUsActive = location.pathname === '/about-us' || location.pathname.startsWith('/about-us/');
   const isHomeActive = location.pathname === '/';
   const isEventsActive = location.pathname === '/events';
   const isDonateActive = location.pathname === '/donations';
+  const isMembershipActive = location.pathname === '/joining';
+  const isPhotosActive = location.pathname === '/photos';
 
   // Close discover menu when clicking outside
   useEffect(() => {
@@ -78,9 +77,32 @@ export default function Header({ className = '' }: HeaderProps) {
   const handleMenuItemClick = useCallback(
     (path: string) => {
       setIsDiscoverOpen(false);
-      navigate(path);
+      
+      // Handle hash navigation for anchor links
+      if (path.includes('#')) {
+        const [pathname, hash] = path.split('#');
+        
+        if (location.pathname === pathname) {
+          // Already on the page, just scroll to the element
+          const element = document.getElementById(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        } else {
+          // Navigate to the page first, then scroll after a short delay
+          navigate(pathname);
+          setTimeout(() => {
+            const element = document.getElementById(hash);
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 100);
+        }
+      } else {
+        navigate(path);
+      }
     },
-    [navigate]
+    [navigate, location.pathname]
   );
 
   const handleHomeClick = useCallback(() => {
@@ -163,11 +185,24 @@ export default function Header({ className = '' }: HeaderProps) {
               />
               <Divider />
 
+              <MobileMenuItem
+                label="Membership"
+                onClick={() => handleMenuItemClick('/joining')}
+                isBold
+              />
+              <Divider />
+              <MobileMenuItem
+                label="Photos"
+                onClick={() => handleMenuItemClick('/photos')}
+                isBold
+              />
+              <Divider />
+
               <div className="flex w-full flex-col gap-3">
                 <div className="flex py-2.5">
-                  <span className="font-open text-[20px] font-bold leading-[40px] text-black">Pages</span>
+                  <span className="font-open text-[20px] font-bold leading-[40px] text-black">About Us</span>
                 </div>
-                {dropdownMenuItems.map((item) => (
+                {aboutUsMenuItems.map((item) => (
                   <MobileMenuItem
                     key={item.path}
                     label={item.label}
@@ -210,10 +245,10 @@ export default function Header({ className = '' }: HeaderProps) {
                 <button
                   onClick={handleDiscoverToggle}
                   className={`flex relative items-center gap-1.5 px-0 py-0 font-albert text-xl leading-5 text-black transition-opacity hover:opacity-80 ${
-                    isDiscoverActive ? 'font-bold' : 'font-semibold'
-                  }`}
+                    isAboutUsActive ? 'font-bold' : 'font-semibold'
+                  } ${isAboutUsActive ? activeLinkClass : ''}`}
                 >
-                  Pages
+                  About Us
                   <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
@@ -223,7 +258,7 @@ export default function Header({ className = '' }: HeaderProps) {
                     className="absolute left-0 top-full z-[100] mt-3 w-[220px] flex-col rounded-xl border border-gray-200 bg-white"
                     style={{ padding: '16px 0', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
                   >
-                    {dropdownMenuItems.map((item) => (
+                    {aboutUsMenuItems.map((item) => (
                       <button
                         key={item.path}
                         onClick={() => handleMenuItemClick(item.path)}
@@ -238,6 +273,22 @@ export default function Header({ className = '' }: HeaderProps) {
                   </div>
                 )}
               </div>
+              <button
+                onClick={() => handleMenuItemClick('/joining')}
+                className={`flex relative rounded-md px-0 py-0 font-albert text-xl leading-5 text-black transition-opacity hover:opacity-80 ${
+                  isMembershipActive ? 'font-bold' : 'font-semibold'
+                } ${isMembershipActive ? activeLinkClass : ''}`}
+              >
+                Membership
+              </button>
+              <button
+                onClick={() => handleMenuItemClick('/photos')}
+                className={`flex relative rounded-md px-0 py-0 font-albert text-xl leading-5 text-black transition-opacity hover:opacity-80 ${
+                  isPhotosActive ? 'font-bold' : 'font-semibold'
+                } ${isPhotosActive ? activeLinkClass : ''}`}
+              >
+                Photos
+              </button>
               <button
                 onClick={() => handleMenuItemClick('/events')}
                 className={`flex relative rounded-md px-0 py-0 font-albert text-xl leading-5 text-black transition-opacity hover:opacity-80 ${

@@ -15,8 +15,7 @@ export default function Donations() {
 
   return (
     <div className="min-h-screen">
-      <div className="pt-[76px] md:pt-[100px]">
-        {/* Section 1: What Your Donation Supports */}
+      {/* Section 1: What Your Donation Supports */}
         <Section title="What Your Donation Supports">
           <div className="font-open text-base leading-7 text-white" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <p>Your generous contributions help MTPC continue its mission of building community through competitive tennis. Donations directly support:</p>
@@ -80,7 +79,6 @@ export default function Donations() {
             MTPC is a 501(c)(3) nonprofit organization. Your donation may be tax-deductible to the extent allowed by law.
           </p>
         </Section>
-      </div>
     </div>
   );
 }

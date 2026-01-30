@@ -3,9 +3,8 @@ import Section from '../components/Section';
 export default function AboutUs() {
   return (
     <div className="min-h-screen">
-      <div className="pt-[76px] md:pt-[100px]">
         {/* Hero */}
-        <Section title="About Kenny Tenny">
+        <Section title="About Kenny Tenny" id="who-we-are">
           <p className="font-open text-base leading-7 text-white" style={{ marginBottom: '24px' }}>
             Minnesota Tennis Players Council (MTPC)—affectionately known as "Kenny Tenny"—is a community-driven adult tennis collective serving the Twin Cities. What began as a small group of passionate players has grown into a vibrant community of approximately 100 participants, ages 25–65, who come together year-round to play competitive tennis, build relationships, and uplift the broader tennis community.
           </p>
@@ -33,7 +32,7 @@ export default function AboutUs() {
         </Section>
 
         {/* Community Impact */}
-        <Section title="Community Impact" variant="secondary">
+        <Section title="Community Impact" variant="secondary" id="community-impact">
           <div className="font-open text-base leading-7 text-white" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <div>
               <h3 className="font-albert text-xl font-semibold text-white" style={{ marginBottom: '8px' }}>Access to Advanced Tennis</h3>
@@ -55,7 +54,7 @@ export default function AboutUs() {
         </Section>
 
         {/* Partners */}
-        <Section title="Our Partners">
+        <Section title="Our Partners" id="partners">
           <div className="font-open text-base leading-7 text-white" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <p><strong>Northern Minnesota Tennis Association (NMTA):</strong> MTPC is proud to partner with NMTA as a volunteer organization. NMTA provides matching sponsorship support for our charitable events benefiting Minneapolis Clay courts and youth tennis programs.</p>
             <p><strong>InnerCity Tennis Foundation of Minneapolis:</strong> Serving 6,000 kids annually since 1973 across 22 public parks.</p>
@@ -65,12 +64,11 @@ export default function AboutUs() {
         </Section>
 
         {/* Board */}
-        <Section title="Leadership" variant="secondary">
+        <Section title="Leadership" variant="secondary" id="leadership">
           <p className="font-open text-base leading-7 text-white" style={{ marginBottom: '24px' }}>
             MTPC is led by a dedicated board of 8 members who organize activities, manage partnerships, and drive our community initiatives. Regular board meetings ensure we continue to serve our members and the broader tennis community effectively.
           </p>
         </Section>
-      </div>
     </div>
   );
 }
