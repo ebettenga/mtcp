@@ -5,9 +5,10 @@ import SocialMediaLinks from '../components/SocialMediaLinks';
 import TestimonialsSection from '../components/TestimonialsSection';
 import mtpc1 from '../assets/images/MTPC 1.jpg';
 import mtpc2 from '../assets/images/MTPC 2.jpg';
+import mtpc3 from '../assets/images/MTPC_home1.png'
 
 export default function Home() {
-  const carouselImages = [mtpc1, mtpc2];
+  const carouselImages = [mtpc1, mtpc2, mtpc3];
 
   const testimonials = [
     {
