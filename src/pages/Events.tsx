@@ -1,35 +1,52 @@
 import Section from '../components/Section';
+import mtpc2 from '../assets/images/tennis-images/MTPC 2.jpg';
+import kennyTennis15 from '../assets/images/tennis-images/kenny tennis 15.JPG';
+import kennyTennis5 from '../assets/images/tennis-images/Kenny Tennis 5.JPG';
+import kennyTennis7 from '../assets/images/tennis-images/Kenny Tennis 7.JPG';
 
 export default function Events() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-        <Section title="Events & Programming">
+        <Section
+          title="Events & Programming"
+          image={mtpc2}
+          imagePosition="left"
+        >
           <p className="font-open text-base leading-7 text-white" style={{ marginBottom: '24px' }}>
             Join us for regular doubles sessions, league play, and community events. From summer grill outs to winter indoor play, there's always something happening at Kenny Tenny. Group trips to regional and national tournaments—join the adventure!
           </p>
         </Section>
 
         {/* Upcoming Fundraising Events */}
-        <Section title="Upcoming Fundraising Events" variant="secondary">
-          <div className="font-open text-base leading-7 text-white" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+        <Section
+          title="Upcoming Fundraising Events"
+          variant="secondary"
+          image={kennyTennis15}
+          imagePosition="right"
+        >
+          <div className="font-open text-base leading-7 text-black" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <div>
-              <h3 className="font-albert text-xl font-semibold text-white" style={{ marginBottom: '8px' }}>Minneapolis Clay Benefit Event</h3>
+              <h3 className="font-albert text-xl font-semibold text-black" style={{ marginBottom: '8px' }}>Minneapolis Clay Benefit Event</h3>
               <p>Join us for a special fundraising event benefiting Minneapolis Clay tennis courts. Held at Lakeville or White Bear in April, this event features competitive play with a player fee and donation component. NMTA provides matching sponsorship support up to $1,500.</p>
             </div>
             <div>
-              <h3 className="font-albert text-xl font-semibold text-white" style={{ marginBottom: '8px' }}>Annual Holiday Mixer</h3>
+              <h3 className="font-albert text-xl font-semibold text-black" style={{ marginBottom: '8px' }}>Annual Holiday Mixer</h3>
               <p>Our signature annual event raising funds for Inner City Tennis. A great opportunity to celebrate the season while supporting youth tennis in Minneapolis.</p>
             </div>
             <div>
-              <h3 className="font-albert text-xl font-semibold text-white" style={{ marginBottom: '8px' }}>St. Paul Urban Tennis Golf Event</h3>
+              <h3 className="font-albert text-xl font-semibold text-black" style={{ marginBottom: '8px' }}>St. Paul Urban Tennis Golf Event</h3>
               <p>Annual support of tennis development through SPUT's fundraising golf event.</p>
             </div>
           </div>
         </Section>
 
         {/* Summer Programming */}
-        <Section title="Summer Programming">
+        <Section
+          title="Summer Programming"
+          image={kennyTennis5}
+          imagePosition="left"
+        >
           <div className="font-open text-base leading-7 text-white" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <div>
               <h3 className="font-albert text-xl font-semibold text-white" style={{ marginBottom: '8px' }}>Tuesday/Thursday Doubles Sessions</h3>
@@ -46,19 +63,24 @@ export default function Events() {
         </Section>
 
         {/* Winter Programming */}
-        <Section title="Winter Programming" variant="secondary">
-          <div className="font-open text-base leading-7 text-white" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+        <Section
+          title="Winter Programming"
+          variant="secondary"
+          image={kennyTennis7}
+          imagePosition="right"
+        >
+          <div className="font-open text-base leading-7 text-black" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <div>
-              <h3 className="font-albert text-xl font-semibold text-white" style={{ marginBottom: '8px' }}>Indoor Tennis</h3>
+              <h3 className="font-albert text-xl font-semibold text-black" style={{ marginBottom: '8px' }}>Indoor Tennis</h3>
               <p>Tuesday/Thursday tennis at local indoor clubs.</p>
             </div>
             <div>
-              <h3 className="font-albert text-xl font-semibold text-white" style={{ marginBottom: '8px' }}>Winter League Play</h3>
+              <h3 className="font-albert text-xl font-semibold text-black" style={{ marginBottom: '8px' }}>Winter League Play</h3>
               <p>• Wednesday: 18+ 4.5 league</p>
               <p>• Thursday: 18+ 5.0 league</p>
             </div>
             <div>
-              <h3 className="font-albert text-xl font-semibold text-white" style={{ marginBottom: '8px' }}>Friday Performance Sessions</h3>
+              <h3 className="font-albert text-xl font-semibold text-black" style={{ marginBottom: '8px' }}>Friday Performance Sessions</h3>
               <p>Adult play incorporating performance juniors to foster mentorship, support, and competitive development.</p>
             </div>
           </div>
@@ -76,7 +98,7 @@ export default function Events() {
 
         {/* Get Involved */}
         <Section title="Event T-Shirts & Gear" variant="secondary">
-          <p className="font-open text-base leading-7 text-white">
+          <p className="font-open text-base leading-7 text-black">
             Show your Kenny Tenny pride! Event t-shirts are available for fundraising events and special occasions. Contact us to learn more about getting your MTPC gear.
           </p>
         </Section>

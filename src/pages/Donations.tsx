@@ -1,4 +1,7 @@
 import Section from '../components/Section';
+import mtpcHome1 from '../assets/images/tennis-images/MTPC_home1.png';
+import kennyTennis8 from '../assets/images/tennis-images/Kenny Tennis 8.JPG';
+import mtpcPlayer1 from '../assets/images/tennis-images/MTPC Player 1.PNG';
 
 export default function Donations() {
   const buttonStyle = {
@@ -16,7 +19,11 @@ export default function Donations() {
   return (
     <div className="min-h-screen">
       {/* Section 1: What Your Donation Supports */}
-        <Section title="What Your Donation Supports">
+        <Section
+          title="What Your Donation Supports"
+          image={mtpcHome1}
+          imagePosition="left"
+        >
           <div className="font-open text-base leading-7 text-white" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <p>Your generous contributions help MTPC continue its mission of building community through competitive tennis. Donations directly support:</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '8px' }}>
@@ -29,8 +36,13 @@ export default function Donations() {
         </Section>
 
         {/* Section 2: Sponsor & Equipment Partners */}
-        <Section title="Sponsor & Equipment Partners" variant="secondary">
-          <p className="font-open text-base leading-7 text-white" style={{ marginBottom: '24px' }}>
+        <Section
+          title="Sponsor & Equipment Partners"
+          variant="secondary"
+          image={kennyTennis8}
+          imagePosition="right"
+        >
+          <p className="font-open text-base leading-7 text-black" style={{ marginBottom: '24px' }}>
             MTPC partners with leading tennis equipment manufacturers to provide quality gear for our members and community programs. Interested in becoming a sponsor? Contact us!
           </p>
           <a
@@ -47,7 +59,11 @@ export default function Donations() {
         </Section>
 
         {/* Section 3: Donate Now */}
-        <Section title="Donate Now">
+        <Section
+          title="Donate Now"
+          image={mtpcPlayer1}
+          imagePosition="left"
+        >
           <p className="font-open text-base leading-7 text-white" style={{ marginBottom: '24px' }}>
             Ready to support Minnesota tennis? Choose your preferred donation method below. Every contribution makes a difference!
           </p>

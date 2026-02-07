@@ -1,18 +1,31 @@
 import Section from '../components/Section';
+import kennyTennis1 from '../assets/images/tennis-images/Kenny Tennis 1.JPG';
+import avaTennis1 from '../assets/images/tennis-images/Ava Tennis 1.JPEG';
+import kennyTennis8 from '../assets/images/tennis-images/Kenny Tennis 8.JPG';
+import kennyTennis9 from '../assets/images/tennis-images/Kenny Tennis 9.JPG';
 
 export default function Joining() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-        <Section title="Join Kenny Tenny">
+        <Section
+          title="Join Kenny Tenny"
+          image={kennyTennis1}
+          imagePosition="left"
+        >
           <p className="font-open text-base leading-7 text-white" style={{ marginBottom: '24px' }}>
             Join approximately 100 players, ages 25–65, who come together year-round to play competitive tennis, build relationships, and uplift the broader tennis community. Whether you're looking for regular competitive play, mentorship opportunities, or a welcoming tennis community, MTPC offers something for advanced players at the 4.5–5.0 level.
           </p>
         </Section>
 
         {/* Who Can Join */}
-        <Section title="Who Can Join" variant="secondary">
-          <div className="font-open text-base leading-7 text-white" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        <Section
+          title="Who Can Join"
+          variant="secondary"
+          image={avaTennis1}
+          imagePosition="right"
+        >
+          <div className="font-open text-base leading-7 text-black" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <p>• Advanced players at the 4.5–5.0 level</p>
             <p>• Ages 25–65</p>
             <p>• Players looking for competitive, regular tennis opportunities</p>
@@ -21,7 +34,11 @@ export default function Joining() {
         </Section>
 
         {/* What We Offer */}
-        <Section title="What We Offer">
+        <Section
+          title="What We Offer"
+          image={kennyTennis8}
+          imagePosition="left"
+        >
           <div className="font-open text-base leading-7 text-white" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <p>• Regular competitive play 4–6 days per week</p>
             <p>• USTA league teams (18+ 4.5, 18+ 5.0, 55+ 4.5)</p>
@@ -35,8 +52,13 @@ export default function Joining() {
         </Section>
 
         {/* Get Started */}
-        <Section title="Ready to Join?" variant="secondary">
-          <p className="font-open text-base leading-7 text-white" style={{ marginBottom: '24px' }}>
+        <Section
+          title="Ready to Join?"
+          variant="secondary"
+          image={kennyTennis9}
+          imagePosition="right"
+        >
+          <p className="font-open text-base leading-7 text-black" style={{ marginBottom: '24px' }}>
             Experience tennis, mentorship, and friendship. Contact us to learn more about joining MTPC and becoming part of Minnesota's premier adult tennis community.
           </p>
           <a

@@ -227,9 +227,9 @@ export default function Header({ className = '' }: HeaderProps) {
         className={`hidden md:flex fixed left-0 right-0 top-0 z-[60] w-full h-[100px] items-center border-b border-gray-100 bg-white ${className}`}
         style={{ padding: '0 32px' }}
       >
-        <div className="flex max-w-page w-full items-center justify-between gap-8 mx-auto">
+        <div className="flex w-full items-center justify-between gap-8 mx-auto">
           <div className="flex items-center gap-8">
-            <div className="flex h-12 items-center cursor-pointer" onClick={handleHomeClick}>
+            <div className="flex h-12 items-center cursor-pointer shrink-0" onClick={handleHomeClick}>
               <img src={logo} alt="Logo" className="h-12 w-auto" style={{ imageRendering: 'auto' }} />
             </div>
             <div className="flex h-8 items-center gap-8">
@@ -309,7 +309,7 @@ export default function Header({ className = '' }: HeaderProps) {
           </div>
           <button
             onClick={handleContactClick}
-            className="font-albert text-base font-semibold rounded-full transition-colors"
+            className="font-albert text-base font-semibold rounded-full transition-colors shrink-0"
             style={{
               padding: '14px 32px',
               backgroundColor: '#57944f',

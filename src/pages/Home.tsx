@@ -3,13 +3,17 @@ import ImageCarousel from '../components/ImageCarousel';
 import SponsorsBanner from '../components/SponsorsBanner';
 import SocialMediaLinks from '../components/SocialMediaLinks';
 import TestimonialsSection from '../components/TestimonialsSection';
+import { useNavigate } from 'react-router-dom';
+import mtpc2 from '../assets/images/tennis-images/MTPC 2.jpg';
+import mtpc3 from '../assets/images/tennis-images/MTPC_home1.png';
+import kennyTennis5 from '../assets/images/tennis-images/Kenny Tennis 5.JPG';
+import kennyTennis7 from '../assets/images/tennis-images/Kenny Tennis 7.JPG';
+import kennyTennis8 from '../assets/images/tennis-images/Kenny Tennis 8.JPG';
 
-import mtpc2 from '../assets/images/MTPC 2.jpg';
-import mtpc3 from '../assets/images/MTPC_home1.png'
 
 export default function Home() {
-  const carouselImages = [ mtpc2, mtpc3];
-
+  const carouselImages = [mtpc2, mtpc3];
+  const navigate = useNavigate();
   const testimonials = [
     {
       text: 'MTPC has given me regular competitive tennis and amazing friendships. The mentorship opportunities have been incredible.',
@@ -31,40 +35,56 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-        {/* Hero Carousel */}
-        <ImageCarousel images={carouselImages} />
+      {/* Hero Carousel */}
+      <ImageCarousel images={carouselImages} />
 
-        {/* Mission Section */}
-        <Section
-          title="Tennis is What We Are, Fun is How We Do It"
-          text="Minnesota Tennis Players Council (MTPC), affectionately known as 'Kenny Tenny,' is a community-driven adult tennis collective serving the Twin Cities. We're a vibrant community of approximately 100 participants, ages 25–65, who come together year-round to play competitive tennis, build relationships, and uplift the broader tennis community."
-        />
+      {/* Mission Section */}
+      <Section
+        title="Tennis is What We Are, Fun is How We Do It"
+        text="Minnesota Tennis Players Council (MTPC), affectionately known as 'Kenny Tenny,"
+        image={kennyTennis5}
+        imagePosition="left"
+      />
 
-        {/* Programs Section */}
-        <Section
-          title="Year-Round Competitive Tennis"
-          text="Play tennis 4–6 days per week across all seasons. From summer doubles sessions and USTA leagues to winter indoor play and performance sessions with juniors, MTPC offers diverse opportunities for competitive tennis year-round. Summer programming includes Tuesday/Thursday doubles sessions at 4.5–5.0 level, weekly grill outs, and USTA team leagues. Winter brings indoor tennis and league play at local clubs."
-          variant="secondary"
-        />
+      {/* Programs Section */}
+      <Section
+        title="Year-Round Competitive Tennis"
+        text="Play tennis 4–6 days per week across all seasons."
+        variant="secondary"
+        image={kennyTennis7}
+        imagePosition="right"
+        buttons={[
+          {
+            label: 'Events',
+            href: '/events',
+            onClick: () => {
+              navigate('/events');
+            },
+          },
+        ]}
+      />
 
-        {/* Community Section */}
-        <Section
-          title="More Than Tennis — A Community"
-          text="MTPC is more than just tennis—it's a community that supports each other and gives back. Through mentorship, charitable activities, and financial support for players in need, we're building a stronger tennis ecosystem in Minnesota. We actively support Inner City Tennis, Saint Paul Urban Tennis, and provide league fee subsidies, equipment, and racquet stringing services to ensure cost is never a barrier to participation."
-        />
+      {/* Community Section */}
+      <Section
+        title="More Than Tennis — A Community"
+        text="MTPC is more than just tennis—it's a community that supports each other and gives back."
+        image={kennyTennis8}
+        imagePosition="left"
+      />
 
-        {/* Testimonials */}
-        <TestimonialsSection testimonials={testimonials} />
+      {/* Testimonials */}
+      <TestimonialsSection testimonials={testimonials} />
 
-        {/* Sponsors */}
-        <SponsorsBanner />
+      {/* Sponsors */}
+      <SponsorsBanner />
 
-        {/* Social Media Links */}
-        <SocialMediaLinks
-          instagramUrl="https://instagram.com"
-          facebookUrl="https://facebook.com"
-          tiktokUrl="https://tiktok.com"
-        />
+      {/* Social Media Links */}
+      <SocialMediaLinks
+        instagramUrl="https://www.instagram.com/mtpc_nation/"
+        xUrl="https://x.com/MTPC_Nation"
+        tiktokUrl="https://www.tiktok.com/@mtpc_nation"
+        facebookUrl="https://www.facebook.com/people/Minnesota-Tennis-Players-Council/100045854246387/"
+      />
     </div>
   );
 }

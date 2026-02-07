@@ -2,6 +2,7 @@ import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Section from "../components/Section";
+import kennyTennis9 from "../assets/images/tennis-images/Kenny Tennis 9.JPG";
 
 interface GalleryImage {
   src: string;
@@ -174,6 +175,8 @@ export default function Photos() {
       <Section
         title="Photo Gallery"
         text="Browse through our collection of memories from events, tournaments, and club activities."
+        image={kennyTennis9}
+        imagePosition="right"
       />
 
       {/* Gallery Section */}

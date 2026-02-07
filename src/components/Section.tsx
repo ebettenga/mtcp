@@ -1,57 +1,43 @@
-interface SectionProps {
-  title?: string;
+import type React from 'react';
+import SectionGreen from './SectionGreen';
+import SectionWhite from './SectionWhite';
+
+export interface SectionButton {
+  label: string;
+  href?: string;
+  onClick?: () => void;
+}
+
+export interface BaseSectionProps {
+  title?: string | React.ReactNode;
   text?: string;
   image?: string;
+  imagePosition?: 'left' | 'right';
+  buttons?: SectionButton[];
   children?: React.ReactNode;
   className?: string;
-  variant?: 'primary' | 'secondary';
   id?: string;
 }
 
-export default function Section({
-  title,
-  text,
-  image,
-  children,
-  className = '',
-  variant = 'primary',
-  id,
-}: SectionProps) {
-  const isPrimary = variant === 'primary';
-  const bgColor = isPrimary ? '#57944f' : '#467a3f';
-  const textColor = 'white';
+export type SectionProps = BaseSectionProps & {
+  variant?: 'green' | 'white' | 'primary' | 'secondary';
+};
 
-  return (
-    <section
-      id={id}
-      className={className}
-      style={{ padding: '64px 32px', backgroundColor: bgColor }}
-    >
-      {title && (
-        <h2
-          className="font-albert text-2xl font-semibold md:text-3xl"
-          style={{ marginBottom: '32px', color: textColor }}
-        >
-          {title}
-        </h2>
-      )}
-      {text && (
-        <p
-          className="font-open text-base leading-7"
-          style={{ marginBottom: children ? '32px' : '0', color: textColor }}
-        >
-          {text}
-        </p>
-      )}
-      {children}
-      {image && (
-        <img
-          src={image}
-          alt={title || 'Section image'}
-          className="h-auto w-full max-w-md rounded-lg object-cover"
-          style={{ marginTop: '32px' }}
-        />
-      )}
-    </section>
+function normalizeVariant(
+  variant: SectionProps['variant']
+): 'green' | 'white' {
+  if (variant === 'secondary' || variant === 'white') return 'white';
+  return 'green';
+}
+
+export default function Section({
+  variant = 'primary',
+  ...rest
+}: SectionProps) {
+  const resolved = normalizeVariant(variant);
+  return resolved === 'green' ? (
+    <SectionGreen {...rest} />
+  ) : (
+    <SectionWhite {...rest} />
   );
 }

@@ -27,6 +27,19 @@
   --color-accent-900: #991a03;
   --color-accent-950: #660d00;
 
+  /* Secondary Color - Purple/Mauve */
+  --color-secondary-50: #faf5fb;
+  --color-secondary-100: #f3e9f5;
+  --color-secondary-200: #e8d4eb;
+  --color-secondary-300: #d6b3dc;
+  --color-secondary-400: #be88c6;
+  --color-secondary-500: #a667af;
+  --color-secondary-600: #8C4F94;
+  --color-secondary-700: #743f7a;
+  --color-secondary-800: #613665;
+  --color-secondary-900: #512f54;
+  --color-secondary-950: #321633;
+
   /* Font Families */
   --font-family-sans: 'Albert Sans', system-ui, -apple-system, sans-serif;
   --font-family-body: 'Open Sans', system-ui, -apple-system, sans-serif;
@@ -37,12 +50,14 @@
   /* Header Height */
   --spacing-header-mobile: 76px;
   --spacing-header-desktop: 100px;
+
+  /* Section title (h2) fluid size on mobile portrait */
+  --heading-2-size-value: 3;
 }
 
-/* Base styles */
+/* Base styles - do not reset padding on * so Tailwind padding utilities (e.g. section content) are not overridden */
 * {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -84,6 +99,13 @@ body {
 
 .font-open {
   font-family: var(--font-family-body);
+}
+
+/* Larger section titles on mobile portrait (fluid typography) */
+@media screen and (max-width: 767px) and (orientation: portrait) {
+  h2 {
+    font-size: calc((var(--heading-2-size-value) - 1) * calc(0.012 * min(100vh, 900px)) + 1rem);
+  }
 }
 
 /* Fallback styles for custom colors if Tailwind v4 doesn't generate them */
