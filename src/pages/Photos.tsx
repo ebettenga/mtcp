@@ -2,8 +2,7 @@ import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Section from "../components/Section";
-import kennyTennis9 from "../assets/images/tennis-images/Kenny Tennis 9.JPG";
-
+import kenny from '../assets/images/tennis-images/kenny.jpg';
 interface GalleryImage {
   src: string;
   original: string;
@@ -12,149 +11,30 @@ interface GalleryImage {
   caption?: string;
 }
 
-// Example images using picsum.photos
-const images: GalleryImage[] = [
-  {
-    src: "https://picsum.photos/seed/1/400/300",
-    original: "https://picsum.photos/seed/1/1200/900",
-    width: 400,
-    height: 300,
-    caption: "Tennis action shot",
-  },
-  {
-    src: "https://picsum.photos/seed/2/300/400",
-    original: "https://picsum.photos/seed/2/900/1200",
-    width: 300,
-    height: 400,
-    caption: "Club event",
-  },
-  {
-    src: "https://picsum.photos/seed/3/400/250",
-    original: "https://picsum.photos/seed/3/1200/750",
-    width: 400,
-    height: 250,
-    caption: "Summer tournament",
-  },
-  {
-    src: "https://picsum.photos/seed/4/350/350",
-    original: "https://picsum.photos/seed/4/1050/1050",
-    width: 350,
-    height: 350,
-    caption: "Team photo",
-  },
-  {
-    src: "https://picsum.photos/seed/5/400/300",
-    original: "https://picsum.photos/seed/5/1200/900",
-    width: 400,
-    height: 300,
-    caption: "Match day",
-  },
-  {
-    src: "https://picsum.photos/seed/6/300/350",
-    original: "https://picsum.photos/seed/6/900/1050",
-    width: 300,
-    height: 350,
-    caption: "Award ceremony",
-  },
-  {
-    src: "https://picsum.photos/seed/7/450/300",
-    original: "https://picsum.photos/seed/7/1350/900",
-    width: 450,
-    height: 300,
-    caption: "Practice session",
-  },
-  {
-    src: "https://picsum.photos/seed/8/350/280",
-    original: "https://picsum.photos/seed/8/1050/840",
-    width: 350,
-    height: 280,
-    caption: "Club house",
-  },
-  {
-    src: "https://picsum.photos/seed/9/400/400",
-    original: "https://picsum.photos/seed/9/1200/1200",
-    width: 400,
-    height: 400,
-    caption: "Group celebration",
-  },
-  {
-    src: "https://picsum.photos/seed/10/380/300",
-    original: "https://picsum.photos/seed/10/1140/900",
-    width: 380,
-    height: 300,
-    caption: "Junior players",
-  },
-  {
-    src: "https://picsum.photos/seed/11/300/380",
-    original: "https://picsum.photos/seed/11/900/1140",
-    width: 300,
-    height: 380,
-    caption: "Spring event",
-  },
-  {
-    src: "https://picsum.photos/seed/12/420/300",
-    original: "https://picsum.photos/seed/12/1260/900",
-    width: 420,
-    height: 300,
-    caption: "Tennis clinic",
-  },
-  {
-    src: "https://picsum.photos/seed/13/350/300",
-    original: "https://picsum.photos/seed/13/1050/900",
-    width: 350,
-    height: 300,
-    caption: "Doubles match",
-  },
-  {
-    src: "https://picsum.photos/seed/14/400/320",
-    original: "https://picsum.photos/seed/14/1200/960",
-    width: 400,
-    height: 320,
-    caption: "Championship finals",
-  },
-  {
-    src: "https://picsum.photos/seed/15/320/400",
-    original: "https://picsum.photos/seed/15/960/1200",
-    width: 320,
-    height: 400,
-    caption: "Victory moment",
-  },
-  {
-    src: "https://picsum.photos/seed/16/400/280",
-    original: "https://picsum.photos/seed/16/1200/840",
-    width: 400,
-    height: 280,
-    caption: "Court overview",
-  },
-  {
-    src: "https://picsum.photos/seed/17/360/360",
-    original: "https://picsum.photos/seed/17/1080/1080",
-    width: 360,
-    height: 360,
-    caption: "Players gathering",
-  },
-  {
-    src: "https://picsum.photos/seed/18/400/300",
-    original: "https://picsum.photos/seed/18/1200/900",
-    width: 400,
-    height: 300,
-    caption: "Warm-up session",
-  },
-  {
-    src: "https://picsum.photos/seed/19/380/320",
-    original: "https://picsum.photos/seed/19/1140/960",
-    width: 380,
-    height: 320,
-    caption: "Club members",
-  },
-  {
-    src: "https://picsum.photos/seed/20/400/350",
-    original: "https://picsum.photos/seed/20/1200/1050",
-    width: 400,
-    height: 350,
-    caption: "End of season party",
-  },
-];
+// Load all images from tennis-images folder via Vite's glob import (no per-file imports)
+const imageModules = import.meta.glob<{ default: string }>(
+  "../assets/images/tennis-images/*.{jpg,jpeg,png,JPG,JPEG,PNG}",
+  { eager: true, query: "?url", import: "default" }
+);
+
+function getGalleryImages(): GalleryImage[] {
+  const entries = Object.entries(imageModules);
+  // Sort by path so order is stable
+  entries.sort(([a], [b]) => a.localeCompare(b));
+  return entries.map(([path, mod]) => {
+    const url = typeof mod === "string" ? mod : (mod as { default: string }).default;
+    const name = path.split("/").pop()?.replace(/\.[^.]+$/, "") ?? "Photo";
+    return {
+      src: url,
+      original: url,
+      width: 400,
+      height: 300,
+      caption: name,
+    };
+  });
+}
+
+const images: GalleryImage[] = getGalleryImages();
 
 export default function Photos() {
   const [lightboxIndex, setLightboxIndex] = useState(-1);
@@ -175,7 +55,7 @@ export default function Photos() {
       <Section
         title="Photo Gallery"
         text="Browse through our collection of memories from events, tournaments, and club activities."
-        image={kennyTennis9}
+        image={kenny}
         imagePosition="right"
       />
 
@@ -188,7 +68,7 @@ export default function Photos() {
               return (
                 <div
                   key={index}
-                  className="relative overflow-hidden rounded-lg cursor-pointer group mb-2 md:mb-4 break-inside-avoid"
+                  className="relative overflow-hidden rounded-lg cursor-pointer group mt-2 py-2 md:mt-4 mb-2 md:mb-4 break-inside-avoid"
                   onClick={() => handleClick(index)}
                 >
                   <img
