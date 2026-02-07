@@ -17,18 +17,18 @@ export default function SectionGreen({
   const contentBlock = (
     <div className="flex min-h-0 flex-1 flex-col px-8 py-14 md:px-16 md:py-20">
       {title != null && (typeof title !== 'string' || title !== '') && (
-        <h2 className="font-albert text-2xl font-semibold text-white md:text-3xl mb-8">
+        <h2 className="font-albert text-2xl font-semibold text-white md:text-4xl mb-8">
           {title}
         </h2>
       )}
       {text != null && text !== '' && (
-        <p className="font-open text-base leading-7 text-white mb-6">
+        <p className="font-open text-base pt-3 leading-7 text-white mb-6">
           {text}
         </p>
       )}
       {children}
       {buttons != null && buttons.length > 0 && (
-        <div className="flex flex-1 justify-center items-center">
+        <div className="flex flex-1 justify-center py-12 items-center">
           <div className="flex flex-wrap justify-center gap-4">
             {buttons.map((btn, i) => {
               const style =

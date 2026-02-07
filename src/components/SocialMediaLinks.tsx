@@ -82,7 +82,7 @@ export default function SocialMediaLinks({
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-600 transition-colors hover:bg-accent-500 hover:text-white"
+            className="text-gray-600 transition-colors hover:text-tertiary-500"
             style={{
               display: 'flex',
               alignItems: 'center',

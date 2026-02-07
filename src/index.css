@@ -58,7 +58,7 @@
   --font-family-body: 'Open Sans', system-ui, -apple-system, sans-serif;
 
   /* Spacing */
-  --spacing-page: 1280px;
+  --spacing-page: 1440px;
   
   /* Header Height */
   --spacing-header-mobile: 76px;
@@ -84,6 +84,7 @@ body {
 .max-w-page {
   max-width: var(--spacing-page);
 }
+
 
 .main-content {
   padding-top: 76px;
@@ -114,12 +115,6 @@ body {
   font-family: var(--font-family-body);
 }
 
-/* Larger section titles on mobile portrait (fluid typography) */
-@media screen and (max-width: 767px) and (orientation: portrait) {
-  h2 {
-    font-size: calc((var(--heading-2-size-value) - 1) * calc(0.012 * min(100vh, 900px)) + 1rem);
-  }
-}
 
 /* Fallback styles for custom colors if Tailwind v4 doesn't generate them */
 @layer utilities {
