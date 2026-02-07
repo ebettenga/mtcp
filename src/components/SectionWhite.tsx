@@ -28,7 +28,8 @@ export default function SectionWhite({
       )}
       {children}
       {buttons != null && buttons.length > 0 && (
-        <div className="flex flex-wrap justify-center gap-4" style={{ marginTop: '5rem' }}>
+        <div className="flex flex-1 justify-center items-center">
+          <div className="flex flex-wrap justify-center gap-4">
             {buttons.map((btn, i) => {
               const style =
                 'inline-block rounded-lg px-10 py-5 font-albert text-lg font-semibold text-white transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
@@ -64,6 +65,7 @@ export default function SectionWhite({
               </button>
             );
           })}
+          </div>
         </div>
       )}
     </div>
