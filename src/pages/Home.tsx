@@ -6,9 +6,9 @@ import TestimonialsSection from '../components/TestimonialsSection';
 import { useNavigate } from 'react-router-dom';
 import mtpc2 from '../assets/images/tennis-images/MTPC 2.jpg';
 import mtpc3 from '../assets/images/tennis-images/MTPC_home1.png';
-import kennyTennis5 from '../assets/images/tennis-images/Kenny Tennis 5.JPG';
 import kennyTennis7 from '../assets/images/tennis-images/Kenny Tennis 7.JPG';
 import kennyTennis8 from '../assets/images/tennis-images/Kenny Tennis 8.JPG';
+import kenny from '../assets/images/tennis-images/kenny.jpg';
 
 
 export default function Home() {
@@ -42,8 +42,17 @@ export default function Home() {
       <Section
         title="Tennis is What We Are, Fun is How We Do It"
         text="Minnesota Tennis Players Council (MTPC), affectionately known as 'Kenny Tenny,"
-        image={kennyTennis5}
+        image={kenny}
         imagePosition="left"
+        buttons={[
+          {
+            label: 'Join Us!',
+            href: '/joining',
+            onClick: () => {
+              navigate('/joining');
+            },
+          },
+        ]}
       />
 
       {/* Programs Section */}

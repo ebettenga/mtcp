@@ -31,13 +31,18 @@ export default function SectionGreen({
         <div className="flex flex-wrap justify-center gap-4" style={{ marginTop: '5rem' }}>
             {buttons.map((btn, i) => {
               const style =
-                'inline-block rounded-lg bg-white px-10 py-5 font-albert text-lg font-semibold text-primary-600 transition-colors hover:bg-primary-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600';
+                'inline-block rounded-lg px-10 py-5 font-albert text-lg font-semibold text-black transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
+              const colorStyle = 'bg-tertiary-500 hover:bg-tertiary-600 focus:ring-tertiary-500';
+              const combinedStyle = `${style} ${colorStyle}`.trim();
             if (btn.href != null) {
               return (
                 <a
                   key={i}
                   href={btn.href}
-                  className={style}
+                  className={combinedStyle}
+                  style={{ backgroundColor: '#E8A93C' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#d18d28'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#E8A93C'; }}
                   target={btn.href.startsWith('http') ? '_blank' : undefined}
                   rel={btn.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 >
@@ -50,7 +55,10 @@ export default function SectionGreen({
                 key={i}
                 type="button"
                 onClick={btn.onClick}
-                className={style}
+                className={combinedStyle}
+                style={{ backgroundColor: '#E8A93C' }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#d18d28'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#E8A93C'; }}
               >
                 {btn.label}
               </button>
