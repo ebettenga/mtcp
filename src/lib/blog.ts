@@ -5,6 +5,15 @@ export interface BlogPost {
   title: string;
   description: string;
   content: string;
+  /** Optional author card at bottom of post */
+  authorName?: string;
+  authorImage?: string;
+  authorBio?: string;
+  authorLink?: { url: string; label?: string };
+  /** Publish date for display, e.g. "March 5, 2025" */
+  publishedDate?: string;
+  /** Reading time in minutes (computed from content if not set) */
+  readTimeMinutes?: number;
 }
 
 // Explicit raw import (add new blogs by importing and pushing to rawEntries)
@@ -14,11 +23,20 @@ function getSlugFromPath(filename: string): string {
   return filename.replace(/\.md$/, '');
 }
 
+function computeReadTimeMinutes(content: string): number {
+  const words = content.trim().split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.ceil(words / 200));
+}
+
 const FALLBACK_POST: BlogPost = {
   slug: 'kenny-tenny-tennis-is-what-we-are',
   title: 'Kenny Tenny: Tennis is What We Are, Fun is How We Do It',
   description:
     "The story of Ken Cychosz and how one of the largest independent tennis communities in the Twin Cities grew from a court that didn't even have a net—and why tennis is what we are, and fun is how we do it.",
+  authorName: 'MTPC',
+  authorBio:
+    'Minnesota Tennis Players Council (MTPC)—Kenny Tenny—is a community-driven adult tennis collective serving the Twin Cities.',
+  publishedDate: 'March 5, 2026',
   content: `Imagine growing up in a town where the only accessible tennis court doesn't even have a net—just a chain-link fence stretched across the middle and cracks in the asphalt as far as the eye can see. It sounds improbable that such a place could produce a player of the highest caliber. Yet overcoming obstacles is often what defines greatness, and **Ken Cychosz** is living proof.
 
 While Ken's accolades as both a player and coach are impressive in their own right, his greatest contribution to the sport of tennis lies elsewhere. His true legacy is the creation of one of the largest independent tennis communities in the Twin Cities—one that has helped dozens of players answer the inevitable question that follows a college tennis career: *What's next?*
@@ -72,23 +90,39 @@ function loadBlogPosts(): BlogPost[] {
     try {
       const rawContent = typeof raw === 'string' ? raw : (raw as { default?: string })?.default ?? '';
       if (!rawContent || !String(rawContent).trim()) {
-        posts.push(FALLBACK_POST);
+        posts.push({
+          ...FALLBACK_POST,
+          readTimeMinutes: computeReadTimeMinutes(FALLBACK_POST.content),
+        });
         continue;
       }
       const { data, content } = matter(rawContent);
+      const slug = (data.slug as string) ?? getSlugFromPath(filename);
       posts.push({
-        slug: (data.slug as string) ?? getSlugFromPath(filename),
+        slug,
         title: (data.title as string) ?? FALLBACK_POST.title,
         description: (data.description as string) ?? FALLBACK_POST.description,
         content,
+        authorName: (data.authorName as string) ?? FALLBACK_POST.authorName,
+        authorImage: data.authorImage as string | undefined,
+        authorBio: (data.authorBio as string) ?? FALLBACK_POST.authorBio,
+        authorLink: data.authorLink as { url: string; label?: string } | undefined,
+        publishedDate: (data.publishedDate as string) ?? FALLBACK_POST.publishedDate,
+        readTimeMinutes: computeReadTimeMinutes(content),
       });
     } catch {
-      posts.push(FALLBACK_POST);
+      posts.push({
+        ...FALLBACK_POST,
+        readTimeMinutes: computeReadTimeMinutes(FALLBACK_POST.content),
+      });
     }
   }
 
   if (posts.length === 0) {
-    posts.push(FALLBACK_POST);
+    posts.push({
+      ...FALLBACK_POST,
+      readTimeMinutes: computeReadTimeMinutes(FALLBACK_POST.content),
+    });
   }
   posts.sort((a, b) => a.slug.localeCompare(b.slug));
   return posts;

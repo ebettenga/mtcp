@@ -43,7 +43,3 @@ The message is simple and consistent wherever members go:
 MTPC is a community-driven adult tennis collective serving the Twin Cities. What began as a small group of passionate players has grown into a vibrant, year-round community of more than one hundred participants—people who compete hard, build lasting relationships, and work together to uplift the broader tennis community.
 
 And it all started with a court that didn't even have a net.
-
----
-
-*Best,*

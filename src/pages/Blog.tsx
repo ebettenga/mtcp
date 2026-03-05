@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { getBlogPosts } from '../lib/blog';
+import AuthorByline from '../components/AuthorByline';
 
 export default function Blog() {
   const posts = getBlogPosts();
@@ -27,6 +28,15 @@ export default function Blog() {
                   <p className="font-open text-base leading-7 text-gray-600">
                     {post.description}
                   </p>
+                )}
+                {(post.authorName || post.publishedDate) && (
+                  <AuthorByline
+                    authorName={post.authorName ?? 'Author'}
+                    authorImage={post.authorImage}
+                    date={post.publishedDate ?? ''}
+                    readTimeMinutes={post.readTimeMinutes ?? 1}
+                    className="mt-4"
+                  />
                 )}
                 <span className="mt-3 inline-block font-open text-sm font-medium text-primary-500 group-hover:underline">
                   Read more →

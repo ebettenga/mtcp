@@ -3,6 +3,8 @@ import { useParams, Navigate, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { getBlogPostBySlug } from '../lib/blog';
+import AuthorCard from '../components/AuthorCard';
+import AuthorByline from '../components/AuthorByline';
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
@@ -43,7 +45,16 @@ export default function BlogPost() {
         >
           ← Back to blog
         </Link>
-        <h1 className="font-albert text-3xl font-bold text-black md:text-4xl" style={{ marginBottom: '32px' }}>
+        {(post.authorName || post.publishedDate) && (
+          <AuthorByline
+            authorName={post.authorName ?? 'Author'}
+            authorImage={post.authorImage}
+            date={post.publishedDate ?? ''}
+            readTimeMinutes={post.readTimeMinutes ?? 1}
+            className="mb-6"
+          />
+        )}
+        <h1 className="font-albert text-3xl pt-3 font-bold text-black md:text-4xl" style={{ marginBottom: '32px' }}>
           {post.title}
         </h1>
         {post.description && (
@@ -76,6 +87,17 @@ export default function BlogPost() {
             <p className="text-gray-500">Content is not available for this post.</p>
           )}
         </div>
+
+        {(post.authorName || post.publishedDate) && (
+          <AuthorCard
+            authorName={post.authorName ?? 'Author'}
+            authorImage={post.authorImage}
+            authorBio={post.authorBio ?? ''}
+            authorLink={post.authorLink}
+            date={post.publishedDate ?? ''}
+            className="mt-10"
+          />
+        )}
       </article>
     </div>
   );
