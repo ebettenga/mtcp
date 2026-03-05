@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 import Events from './pages/Events';
 import AboutUs from './pages/AboutUs';
 import Photos from './pages/Photos';
@@ -18,6 +20,8 @@ function App() {
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/events" element={<Events />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/photos" element={<Photos />} />

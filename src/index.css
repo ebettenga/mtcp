@@ -74,10 +74,19 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  min-height: 100%;
+}
+
 body {
   font-family: var(--font-family-body);
   color: #000000;
   background-color: #ffffff;
+}
+
+#root {
+  min-height: 100%;
 }
 
 /* Custom utility classes */

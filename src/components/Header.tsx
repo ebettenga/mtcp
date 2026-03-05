@@ -28,6 +28,7 @@ export default function Header({ className = '' }: HeaderProps) {
   const isDonateActive = location.pathname === '/donations';
   const isMembershipActive = location.pathname === '/joining';
   const isPhotosActive = location.pathname === '/photos';
+  const isBlogActive = location.pathname === '/blog' || location.pathname.startsWith('/blog/');
 
   // Close discover menu when clicking outside
   useEffect(() => {
@@ -197,6 +198,12 @@ export default function Header({ className = '' }: HeaderProps) {
                 isBold
               />
               <Divider />
+              <MobileMenuItem
+                label="Blog"
+                onClick={() => handleMenuItemClick('/blog')}
+                isBold
+              />
+              <Divider />
 
               <div className="flex w-full flex-col gap-3">
                 <div className="flex py-2.5">
@@ -288,6 +295,14 @@ export default function Header({ className = '' }: HeaderProps) {
                 } ${isPhotosActive ? activeLinkClass : ''}`}
               >
                 Photos
+              </button>
+              <button
+                onClick={() => handleMenuItemClick('/blog')}
+                className={`flex relative rounded-md px-0 py-0 font-albert text-xl leading-5 text-black transition-opacity hover:opacity-80 ${
+                  isBlogActive ? 'font-bold' : 'font-semibold'
+                } ${isBlogActive ? activeLinkClass : ''}`}
+              >
+                Blog
               </button>
               <button
                 onClick={() => handleMenuItemClick('/events')}

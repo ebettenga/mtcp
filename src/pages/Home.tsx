@@ -1,7 +1,8 @@
 import Section from '../components/Section';
 import ImageCarousel from '../components/ImageCarousel';
-import SponsorsBanner from '../components/SponsorsBanner';
+// import SponsorsBanner from '../components/SponsorsBanner';
 import SocialMediaLinks from '../components/SocialMediaLinks';
+import { getLatestBlogPost } from '../lib/blog';
 import TestimonialsSection from '../components/TestimonialsSection';
 import { useNavigate } from 'react-router-dom';
 import mtpc2 from '../assets/images/tennis-images/MTPC 2.jpg';
@@ -84,8 +85,29 @@ export default function Home() {
       {/* Testimonials */}
       <TestimonialsSection testimonials={testimonials} />
 
-      {/* Sponsors */}
+      {/* Blog promo (replaces Sponsors section) */}
+      {(() => {
+        const latestPost = getLatestBlogPost();
+        if (!latestPost) return null;
+        return (
+          <Section
+            title={latestPost.title}
+            text={latestPost.description}
+            variant="secondary"
+            buttons={[
+              {
+                label: 'Read more',
+                href: `/blog/${latestPost.slug}`,
+                onClick: () => navigate(`/blog/${latestPost.slug}`),
+              },
+            ]}
+          />
+        );
+      })()}
+
+      {/* Sponsors - commented out
       <SponsorsBanner />
+      */}
 
       {/* Social Media Links */}
       <SocialMediaLinks
