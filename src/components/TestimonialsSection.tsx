@@ -42,7 +42,7 @@ export default function TestimonialsSection({
   return (
     <section
       className={className}
-      style={{ padding: '64px 32px', textAlign: 'center', backgroundColor: '#fff5f2' }}
+      style={{ padding: '64px 32px', textAlign: 'center', backgroundColor: '#eef3f9' }}
     >
       <h2
         className="font-albert text-2xl font-semibold md:text-3xl"
@@ -79,7 +79,7 @@ export default function TestimonialsSection({
               width: index === currentIndex ? '32px' : '8px',
               height: '8px',
               borderRadius: '9999px',
-              backgroundColor: index === currentIndex ? '#57944f' : '#d1d5db',
+              backgroundColor: index === currentIndex ? '#123a6e' : '#d1d5db',
               border: 'none',
               cursor: 'pointer',
               transition: 'all 0.3s',

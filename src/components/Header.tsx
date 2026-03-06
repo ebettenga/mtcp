@@ -138,7 +138,7 @@ export default function Header({ className = '' }: HeaderProps) {
     </button>
   );
 
-  const Divider = () => <div className="h-px w-full bg-accent-500" />;
+  const Divider = () => <div className="h-px w-full bg-secondary-500" />;
 
   return (
     <>
@@ -327,13 +327,13 @@ export default function Header({ className = '' }: HeaderProps) {
             className="font-albert text-base font-semibold rounded-full transition-colors shrink-0"
             style={{
               padding: '14px 32px',
-              backgroundColor: '#57944f',
+              backgroundColor: '#123a6e',
               color: 'white',
               border: 'none',
               cursor: 'pointer',
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#467a3f'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#57944f'; }}
+            onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#103261'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#123a6e'; }}
           >
             Contact Us
           </button>

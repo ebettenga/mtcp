@@ -91,7 +91,6 @@ export default function Home() {
         <Section
           title={latestPost.title}
           text={latestPost.description}
-          variant="secondary"
           buttons={[
             {
               label: 'Read more',

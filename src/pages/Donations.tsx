@@ -7,7 +7,7 @@ export default function Donations() {
   const buttonStyle = {
     padding: '14px 32px',
     backgroundColor: 'white',
-    color: '#57944f',
+    color: '#123a6e',
     textDecoration: 'none',
     cursor: 'pointer',
     borderRadius: '9999px',

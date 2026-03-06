@@ -33,7 +33,7 @@ export default function SectionGreen({
             {buttons.map((btn, i) => {
               const style =
                 'inline-block rounded-lg px-10 py-5 font-albert text-lg font-semibold text-black transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
-              const colorStyle = 'bg-tertiary-500 hover:bg-tertiary-600 focus:ring-tertiary-500';
+              const colorStyle = 'bg-secondary-500 hover:bg-secondary-600 focus:ring-secondary-500';
               const combinedStyle = `${style} ${colorStyle}`.trim();
             if (btn.href != null) {
               return (
@@ -41,9 +41,9 @@ export default function SectionGreen({
                   key={i}
                   href={btn.href}
                   className={combinedStyle}
-                  style={{ backgroundColor: '#E8A93C' }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#d18d28'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#E8A93C'; }}
+                  style={{ backgroundColor: '#ccfb14' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#a5cc0f'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#ccfb14'; }}
                   target={btn.href.startsWith('http') ? '_blank' : undefined}
                   rel={btn.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 >
@@ -57,9 +57,9 @@ export default function SectionGreen({
                 type="button"
                 onClick={btn.onClick}
                 className={combinedStyle}
-                style={{ backgroundColor: '#E8A93C' }}
-                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#d18d28'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#E8A93C'; }}
+                style={{ backgroundColor: '#ccfb14' }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#a5cc0f'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#ccfb14'; }}
               >
                 {btn.label}
               </button>

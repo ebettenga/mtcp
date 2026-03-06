@@ -1,57 +1,57 @@
 @import "tailwindcss";
 
 @theme {
-  /* Primary Color Palette - Based on #57944f */
-  --color-primary-50: #f0f9f0;
-  --color-primary-100: #d4f0d4;
-  --color-primary-200: #a8e1a8;
-  --color-primary-300: #7cd27c;
-  --color-primary-400: #57944f;
-  --color-primary-500: #57944f;
-  --color-primary-600: #467a3f;
-  --color-primary-700: #35602f;
-  --color-primary-800: #24461f;
-  --color-primary-900: #122c0f;
-  --color-primary-950: #091208;
+  /* Primary Color Palette - Based on #123a6e (Navy Blue) */
+  --color-primary-50: #eef3f9;
+  --color-primary-100: #d5e0ee;
+  --color-primary-200: #a8c0dc;
+  --color-primary-300: #7aa0ca;
+  --color-primary-400: #3f6a9c;
+  --color-primary-500: #123a6e;
+  --color-primary-600: #103261;
+  --color-primary-700: #0d294d;
+  --color-primary-800: #091d37;
+  --color-primary-900: #061221;
+  --color-primary-950: #030a14;
 
-  /* Complementary Accent Color - Warm Coral/Terracotta */
-  --color-accent-50: #fff5f2;
-  --color-accent-100: #ffe5dd;
-  --color-accent-200: #ffcbb8;
-  --color-accent-300: #ffa88d;
-  --color-accent-400: #ff7d5c;
-  --color-accent-500: #ff5c33;
-  --color-accent-600: #e64a1f;
-  --color-accent-700: #cc3a15;
-  --color-accent-800: #b32a0c;
-  --color-accent-900: #991a03;
-  --color-accent-950: #660d00;
+  /* Accent Color - Light Navy for backgrounds */
+  --color-accent-50: #eef3f9;
+  --color-accent-100: #d5e0ee;
+  --color-accent-200: #a8c0dc;
+  --color-accent-300: #7aa0ca;
+  --color-accent-400: #3f6a9c;
+  --color-accent-500: #123a6e;
+  --color-accent-600: #103261;
+  --color-accent-700: #0d294d;
+  --color-accent-800: #091d37;
+  --color-accent-900: #061221;
+  --color-accent-950: #030a14;
 
-  /* Secondary Color - Purple/Mauve */
-  --color-secondary-50: #faf5fb;
-  --color-secondary-100: #f3e9f5;
-  --color-secondary-200: #e8d4eb;
-  --color-secondary-300: #d6b3dc;
-  --color-secondary-400: #be88c6;
-  --color-secondary-500: #a667af;
-  --color-secondary-600: #8C4F94;
-  --color-secondary-700: #743f7a;
-  --color-secondary-800: #613665;
-  --color-secondary-900: #512f54;
-  --color-secondary-950: #321633;
+  /* Secondary Color - Lime Green (#ccfb14) */
+  --color-secondary-50: #fdfee8;
+  --color-secondary-100: #f9fdc8;
+  --color-secondary-200: #f2fb8d;
+  --color-secondary-300: #e5f84f;
+  --color-secondary-400: #d9fb31;
+  --color-secondary-500: #ccfb14;
+  --color-secondary-600: #a5cc0f;
+  --color-secondary-700: #7e9d0c;
+  --color-secondary-800: #5b7209;
+  --color-secondary-900: #394906;
+  --color-secondary-950: #1e2603;
 
-  /* Tertiary Color - Golden Yellow */
-  --color-tertiary-50: #fefbf3;
-  --color-tertiary-100: #fdf5e1;
-  --color-tertiary-200: #fae9c2;
-  --color-tertiary-300: #f6d898;
-  --color-tertiary-400: #f2c562;
-  --color-tertiary-500: #E8A93C;
-  --color-tertiary-600: #d18d28;
-  --color-tertiary-700: #ae7020;
-  --color-tertiary-800: #8d5820;
-  --color-tertiary-900: #73491e;
-  --color-tertiary-950: #3f250d;
+  /* Tertiary Color - Same as Secondary for unified palette */
+  --color-tertiary-50: #fdfee8;
+  --color-tertiary-100: #f9fdc8;
+  --color-tertiary-200: #f2fb8d;
+  --color-tertiary-300: #e5f84f;
+  --color-tertiary-400: #d9fb31;
+  --color-tertiary-500: #ccfb14;
+  --color-tertiary-600: #a5cc0f;
+  --color-tertiary-700: #7e9d0c;
+  --color-tertiary-800: #5b7209;
+  --color-tertiary-900: #394906;
+  --color-tertiary-950: #1e2603;
 
   /* Font Families */
   --font-family-sans: 'Albert Sans', system-ui, -apple-system, sans-serif;

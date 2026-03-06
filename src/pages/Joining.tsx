@@ -67,7 +67,7 @@ export default function Joining() {
             style={{
               padding: '14px 32px',
               backgroundColor: 'white',
-              color: '#57944f',
+              color: '#123a6e',
               textDecoration: 'none',
               cursor: 'pointer',
             }}
