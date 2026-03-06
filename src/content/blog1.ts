@@ -1,10 +1,15 @@
----
-title: "Kenny Tenny: Tennis is What We Are, Fun is How We Do It"
-description: "The story of Ken Cychosz and how one of the largest independent tennis communities in the Twin Cities grew from a court that didn't even have a net—and why tennis is what we are, and fun is how we do it."
-slug: kenny-tenny-tennis-is-what-we-are
----
+import type { BlogPostData } from '../lib/blog';
 
-Imagine growing up in a town where the only accessible tennis court doesn't even have a net—just a chain-link fence stretched across the middle and cracks in the asphalt as far as the eye can see. It sounds improbable that such a place could produce a player of the highest caliber. Yet overcoming obstacles is often what defines greatness, and **Ken Cychosz** is living proof.
+const post: BlogPostData = {
+  slug: 'kenny-tenny-tennis-is-what-we-are',
+  title: 'Kenny Tenny: Tennis is What We Are, Fun is How We Do It',
+  description:
+    'The story of Ken Cychosz and how one of the largest independent tennis communities in the Twin Cities grew from a court that didn\'t even have a net—and why tennis is what we are, and fun is how we do it.',
+  authorName: 'MTPC',
+  authorBio:
+    'Minnesota Tennis Players Council (MTPC)—Kenny Tenny—is a community-driven adult tennis collective serving the Twin Cities.',
+  publishedDate: 'March 5, 2026',
+  content: `Imagine growing up in a town where the only accessible tennis court doesn't even have a net—just a chain-link fence stretched across the middle and cracks in the asphalt as far as the eye can see. It sounds improbable that such a place could produce a player of the highest caliber. Yet overcoming obstacles is often what defines greatness, and **Ken Cychosz** is living proof.
 
 While Ken's accolades as both a player and coach are impressive in their own right, his greatest contribution to the sport of tennis lies elsewhere. His true legacy is the creation of one of the largest independent tennis communities in the Twin Cities—one that has helped dozens of players answer the inevitable question that follows a college tennis career: *What's next?*
 
@@ -42,4 +47,7 @@ The message is simple and consistent wherever members go:
 
 MTPC is a community-driven adult tennis collective serving the Twin Cities. What began as a small group of passionate players has grown into a vibrant, year-round community of more than one hundred participants—people who compete hard, build lasting relationships, and work together to uplift the broader tennis community.
 
-And it all started with a court that didn't even have a net.
+And it all started with a court that didn't even have a net.`,
+};
+
+export default post;

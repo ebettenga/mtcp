@@ -1,26 +1,22 @@
-import matter from 'gray-matter';
+// To add a new blog post: create a .ts file in src/content/ (see blog1.ts for the shape),
+// then import it here and add it to the `entries` array.
 
-export interface BlogPost {
+import blog1 from '../content/blog1';
+
+export interface BlogPostData {
   slug: string;
   title: string;
   description: string;
   content: string;
-  /** Optional author card at bottom of post */
   authorName?: string;
   authorImage?: string;
   authorBio?: string;
   authorLink?: { url: string; label?: string };
-  /** Publish date for display, e.g. "March 5, 2025" */
   publishedDate?: string;
-  /** Reading time in minutes (computed from content if not set) */
-  readTimeMinutes?: number;
 }
 
-// Explicit raw import (add new blogs by importing and pushing to rawEntries)
-import blog1Raw from '../assets/blogs/blog1.md?raw';
-
-function getSlugFromPath(filename: string): string {
-  return filename.replace(/\.md$/, '');
+export interface BlogPost extends BlogPostData {
+  readTimeMinutes: number;
 }
 
 function computeReadTimeMinutes(content: string): number {
@@ -28,118 +24,23 @@ function computeReadTimeMinutes(content: string): number {
   return Math.max(1, Math.ceil(words / 200));
 }
 
-const FALLBACK_POST: BlogPost = {
-  slug: 'kenny-tenny-tennis-is-what-we-are',
-  title: 'Kenny Tenny: Tennis is What We Are, Fun is How We Do It',
-  description:
-    "The story of Ken Cychosz and how one of the largest independent tennis communities in the Twin Cities grew from a court that didn't even have a net—and why tennis is what we are, and fun is how we do it.",
-  authorName: 'MTPC',
-  authorBio:
-    'Minnesota Tennis Players Council (MTPC)—Kenny Tenny—is a community-driven adult tennis collective serving the Twin Cities.',
-  publishedDate: 'March 5, 2026',
-  content: `Imagine growing up in a town where the only accessible tennis court doesn't even have a net—just a chain-link fence stretched across the middle and cracks in the asphalt as far as the eye can see. It sounds improbable that such a place could produce a player of the highest caliber. Yet overcoming obstacles is often what defines greatness, and **Ken Cychosz** is living proof.
-
-While Ken's accolades as both a player and coach are impressive in their own right, his greatest contribution to the sport of tennis lies elsewhere. His true legacy is the creation of one of the largest independent tennis communities in the Twin Cities—one that has helped dozens of players answer the inevitable question that follows a college tennis career: *What's next?*
-
-Ken's tried-and-true methodology blends tennis "old heads," many of whom he has been competing with for more than forty years, with "young guns" fresh out of college who still have the competitive fire but aren't sure where it belongs anymore. Through this mix, he has organically cultivated a tight-knit community of more than one hundred individuals who see tennis not just as a way to stay active, but as a way to belong to something larger than themselves.
-
-My first experience with Ken dates back to the early 2010s, when I spent my summers coaching juniors at a local tennis camp while home from college. Every Monday evening, the program hosted an adult drill that brought together players from the area, fellow coaches, and a handful of high-level juniors. Like clockwork, Ken would pull into the parking lot, amble onto the court, sit down to lace up his shoes, and fire off a wisecrack to whoever happened to be closest.
-
-That easygoing demeanor followed him onto the court. While he competed with focus and intensity, he never missed an opportunity to inject humor—playfully chirping at partners and opponents alike. Somehow, he always managed to toe the line without ever crossing it. His charisma, paired with his on-court ability, made him a favorite at every drill. At the time, I had no idea just how influential he would eventually become in both my professional and personal life.
-
-Fast forward a few years. I had graduated from college and was coaching full-time at a local club. Every Tuesday evening, as I wrapped up my on-court hours, I noticed a group of players who were consistently louder—and clearly having more fun—than anyone else in the building. After a few weeks, curiosity got the better of me, and I checked our court management system to see who had those courts booked.
-
-Sure enough, Ken had two courts of permanent court time.
-
-I decided to poke my head in and say hello. **What followed changed my life.**
-
-From the moment I stepped onto the court, I was warmly welcomed, immediately introduced to everyone, given a nickname, and told to grab my racket. I had never experienced a group so willing to embrace someone they had just met. That group—now one I'm proud to call my own—was the foundation of what would become the **Minnesota Tennis Players Council**, or MTPC for short.
-
-It didn't take long to realize that, for these guys, tennis wasn't just tennis. It was a way of life. A priority. A brotherhood.
-
-Tuesday nights were just the beginning. League opportunities existed on Wednesdays, Thursdays, and Saturdays, and participation only continued to grow. I watched the group expand from roughly twenty-five players to well over one hundred. Fridays were eventually added as another informal play option, once again incorporating high-performance juniors to help bridge the gap between junior, collegiate, and adult competitive tennis. This intentional integration continues to fuel the future of the adult competitive scene in the Twin Cities.
-
-Whether through league play or informal doubles, the sense of community created by MTPC is what keeps people coming back—and what continues to draw new members in. As the group grows, so does its ability to make a meaningful impact.
-
-Anyone who lives in the Twin Cities knows that tennis can be cost-prohibitive, especially year-round. Indoor court time is expensive, and when you add league fees and club memberships, the barriers to entry rise quickly. MTPC's mission, however, is simple: **grow the game of tennis.**
-
-That mission takes many forms. MTPC routinely covers or subsidizes court time, balls, league fees, and other associated costs. The group also supports local organizations such as St. Paul Urban Tennis (SPUT) and InnerCity Tennis (ICT), helping fund scholarships for juniors who otherwise wouldn't have access to tennis instruction. Additionally, MTPC works to ease the financial burden for young players transitioning out of college, ensuring that sticker shock doesn't push them away from the sport they love.
-
-At its core, MTPC is founded on the belief that tennis should be accessible to anyone who wants to play, regardless of financial means.
-
-That philosophy doesn't stop at city limits. Each year, members travel to the Mid Canada Open in Thunder Bay, where lasting relationships have formed with the tennis community just north of the border. Others who have moved away from the Twin Cities have carried the MTPC model with them, planting the seeds for similar groups in new locations.
-
-The message is simple and consistent wherever members go:
-
-> **Tennis is what we are, and fun is how we do it.**
-
-MTPC is a community-driven adult tennis collective serving the Twin Cities. What began as a small group of passionate players has grown into a vibrant, year-round community of more than one hundred participants—people who compete hard, build lasting relationships, and work together to uplift the broader tennis community.
-
-And it all started with a court that didn't even have a net.
-
----
-
-*Best,*`,
-};
-
-function loadBlogPosts(): BlogPost[] {
-  const posts: BlogPost[] = [];
-  const rawEntries: [string, unknown][] = [['blog1.md', blog1Raw]];
-
-  for (const [filename, raw] of rawEntries) {
-    try {
-      const rawContent = typeof raw === 'string' ? raw : (raw as { default?: string })?.default ?? '';
-      if (!rawContent || !String(rawContent).trim()) {
-        posts.push({
-          ...FALLBACK_POST,
-          readTimeMinutes: computeReadTimeMinutes(FALLBACK_POST.content),
-        });
-        continue;
-      }
-      const { data, content } = matter(rawContent);
-      const slug = (data.slug as string) ?? getSlugFromPath(filename);
-      posts.push({
-        slug,
-        title: (data.title as string) ?? FALLBACK_POST.title,
-        description: (data.description as string) ?? FALLBACK_POST.description,
-        content,
-        authorName: (data.authorName as string) ?? FALLBACK_POST.authorName,
-        authorImage: data.authorImage as string | undefined,
-        authorBio: (data.authorBio as string) ?? FALLBACK_POST.authorBio,
-        authorLink: data.authorLink as { url: string; label?: string } | undefined,
-        publishedDate: (data.publishedDate as string) ?? FALLBACK_POST.publishedDate,
-        readTimeMinutes: computeReadTimeMinutes(content),
-      });
-    } catch {
-      posts.push({
-        ...FALLBACK_POST,
-        readTimeMinutes: computeReadTimeMinutes(FALLBACK_POST.content),
-      });
-    }
-  }
-
-  if (posts.length === 0) {
-    posts.push({
-      ...FALLBACK_POST,
-      readTimeMinutes: computeReadTimeMinutes(FALLBACK_POST.content),
-    });
-  }
-  posts.sort((a, b) => a.slug.localeCompare(b.slug));
-  return posts;
+function hydrate(data: BlogPostData): BlogPost {
+  return { ...data, readTimeMinutes: computeReadTimeMinutes(data.content) };
 }
 
-const postsCache = loadBlogPosts();
+const entries: BlogPostData[] = [blog1];
+
+const postsCache: BlogPost[] = entries.map(hydrate).sort((a, b) => a.slug.localeCompare(b.slug));
+const slugToPost = new Map(postsCache.map((p) => [p.slug, p]));
 
 export function getBlogPosts(): BlogPost[] {
   return postsCache;
 }
-
-const slugToPost = new Map(postsCache.map((p) => [p.slug, p]));
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
   return slugToPost.get(slug);
 }
 
 export function getLatestBlogPost(): BlogPost | undefined {
-  return postsCache[0] ?? undefined;
+  return postsCache[0];
 }

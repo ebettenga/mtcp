@@ -63,7 +63,7 @@ export default function BlogPost() {
           </p>
         )}
         <div className="blog-content font-open text-base leading-7 text-gray-800">
-          {post.content ? (
+          {post.content && (
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               components={{
@@ -83,8 +83,6 @@ export default function BlogPost() {
             >
               {post.content}
             </ReactMarkdown>
-          ) : (
-            <p className="text-gray-500">Content is not available for this post.</p>
           )}
         </div>
 

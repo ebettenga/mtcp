@@ -15,6 +15,7 @@ import kenny from '../assets/images/tennis-images/kenny.jpg';
 export default function Home() {
   const carouselImages = [mtpc2, mtpc3];
   const navigate = useNavigate();
+  const latestPost = getLatestBlogPost();
   const testimonials = [
     {
       text: 'MTPC has given me regular competitive tennis and amazing friendships. The mentorship opportunities have been incredible.',
@@ -86,24 +87,20 @@ export default function Home() {
       <TestimonialsSection testimonials={testimonials} />
 
       {/* Blog promo (replaces Sponsors section) */}
-      {(() => {
-        const latestPost = getLatestBlogPost();
-        if (!latestPost) return null;
-        return (
-          <Section
-            title={latestPost.title}
-            text={latestPost.description}
-            variant="secondary"
-            buttons={[
-              {
-                label: 'Read more',
-                href: `/blog/${latestPost.slug}`,
-                onClick: () => navigate(`/blog/${latestPost.slug}`),
-              },
-            ]}
-          />
-        );
-      })()}
+      {latestPost && (
+        <Section
+          title={latestPost.title}
+          text={latestPost.description}
+          variant="secondary"
+          buttons={[
+            {
+              label: 'Read more',
+              href: `/blog/${latestPost.slug}`,
+              onClick: () => navigate(`/blog/${latestPost.slug}`),
+            },
+          ]}
+        />
+      )}
 
       {/* Sponsors - commented out
       <SponsorsBanner />
