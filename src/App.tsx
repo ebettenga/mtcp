@@ -6,7 +6,7 @@ import BlogPost from './pages/BlogPost';
 import Events from './pages/Events';
 import AboutUs from './pages/AboutUs';
 import Photos from './pages/Photos';
-import Donations from './pages/Donations';
+// import Donations from './pages/Donations';
 import Joining from './pages/Joining';
 import Links from './pages/Links';
 
@@ -25,7 +25,7 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/photos" element={<Photos />} />
-          <Route path="/donations" element={<Donations />} />
+          {/* <Route path="/donations" element={<Donations />} /> */}
           <Route path="/joining" element={<Joining />} />
           <Route path="/links" element={<Links />} />
           <Route path="*" element={<Navigate to="/" replace />} />

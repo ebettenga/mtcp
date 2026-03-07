@@ -81,7 +81,7 @@ export default function AboutUs() {
           imagePosition="right"
         >
           <div className="font-open text-base leading-7 text-white" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <p><strong>Northern Minnesota Tennis Association (NMTA):</strong> MTPC is proud to partner with NMTA as a volunteer organization. NMTA provides matching sponsorship support for our charitable events benefiting Minneapolis Clay courts and youth tennis programs.</p>
+            {/* <p><strong>Northern Minnesota Tennis Association (NMTA):</strong> MTPC is proud to partner with NMTA as a volunteer organization. NMTA provides matching sponsorship support for our charitable events benefiting Minneapolis Clay courts and youth tennis programs.</p> */}
             <p><strong>InnerCity Tennis Foundation of Minneapolis:</strong> Serving 6,000 kids annually since 1973 across 22 public parks.</p>
             <p><strong>Saint Paul Urban Tennis (SPUT):</strong> Transforming lives of youth in underserved communities since 1991.</p>
             <p><strong>Thunder Bay Ontario Tennis:</strong> Reciprocal inclusion in events including the Mid Canada Tennis Classic.</p>

@@ -25,7 +25,7 @@ export default function Header({ className = '' }: HeaderProps) {
   const isAboutUsActive = location.pathname === '/about-us' || location.pathname.startsWith('/about-us/');
   const isHomeActive = location.pathname === '/';
   const isEventsActive = location.pathname === '/events';
-  const isDonateActive = location.pathname === '/donations';
+  // const isDonateActive = location.pathname === '/donations';
   const isMembershipActive = location.pathname === '/joining';
   const isPhotosActive = location.pathname === '/photos';
   const isBlogActive = location.pathname === '/blog' || location.pathname.startsWith('/blog/');
@@ -179,12 +179,12 @@ export default function Header({ className = '' }: HeaderProps) {
                 isBold
               />
               <Divider />
-              <MobileMenuItem
+              {/* <MobileMenuItem
                 label="Donate"
                 onClick={() => handleMenuItemClick('/donations')}
                 isBold
               />
-              <Divider />
+              <Divider /> */}
 
               <MobileMenuItem
                 label="Membership"
@@ -312,14 +312,14 @@ export default function Header({ className = '' }: HeaderProps) {
               >
                 Events
               </button>
-              <button
+              {/* <button
                 onClick={() => handleMenuItemClick('/donations')}
                 className={`flex relative rounded-md px-0 py-0 font-albert text-xl leading-5 text-black transition-opacity hover:opacity-80 ${
                   isDonateActive ? 'font-bold' : 'font-semibold'
                 } ${isDonateActive ? activeLinkClass : ''}`}
               >
                 Donate
-              </button>
+              </button> */}
             </div>
           </div>
           <button

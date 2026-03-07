@@ -28,7 +28,7 @@ export default function Events() {
           <div className="font-open text-base leading-7 text-black" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <div>
               <h3 className="font-albert text-xl font-semibold text-black" style={{ marginBottom: '8px' }}>Minneapolis Clay Benefit Event</h3>
-              <p>Join us for a special fundraising event benefiting Minneapolis Clay tennis courts. Held at Lakeville or White Bear in April, this event features competitive play with a player fee and donation component. NMTA provides matching sponsorship support up to $1,500.</p>
+              <p>Join us for a special fundraising event benefiting Minneapolis Clay tennis courts. Held at Lakeville or White Bear in April, this event features competitive play with a player fee and donation component.</p>
             </div>
             <div>
               <h3 className="font-albert text-xl font-semibold text-black" style={{ marginBottom: '8px' }}>Annual Holiday Mixer</h3>
