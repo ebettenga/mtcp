@@ -34,17 +34,6 @@ export default function AboutUs() {
           </p>
         </Section>
 
-        {/*  Nonprofit */}
-        <Section title="A 501(c)(3) Nonprofit">
-          <p className="font-open text-base leading-7 text-white" style={{ marginBottom: '24px' }}>
-            MTPC is a 501(c)(3) nonprofit organization. This allows us to better serve our community, accept tax-deductible donations, and expand our charitable initiatives supporting youth tennis programs throughout Minnesota.
-          </p>
-          <div className="font-open text-base leading-7 text-white" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            <p><strong>Membership Dues:</strong> $25/year suggested contribution</p>
-            <p><strong>Nonprofit Events:</strong> $50 contribution for special fundraising events</p>
-          </div>
-        </Section>
-
         {/* Community Impact */}
         <Section
           title="Community Impact"

@@ -91,9 +91,6 @@ export default function Donations() {
               Donate with Venmo
             </a>
           </div>
-          <p className="font-open text-sm leading-6 text-white" style={{ opacity: 0.9 }}>
-            MTPC is a 501(c)(3) nonprofit organization. Your donation may be tax-deductible to the extent allowed by law.
-          </p>
         </Section>
     </div>
   );
