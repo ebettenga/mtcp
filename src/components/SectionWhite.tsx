@@ -89,7 +89,7 @@ export default function SectionWhite({
     <section id={id} className={`bg-white ${className}`.trim()}>
       <div className="flex flex-col md:flex-row md:items-stretch">
         <div
-          className="flex w-full shrink-0 md:w-2/5 md:min-h-0"
+          className="flex w-full shrink-0 md:w-1/2 md:min-h-0"
           style={{ order: imageOrder }}
         >
           <img
@@ -99,7 +99,7 @@ export default function SectionWhite({
           />
         </div>
         <div
-          className="flex min-h-0 flex-1 flex-col"
+          className="flex min-h-0 w-full md:w-1/2 flex-col"
           style={{ order: contentOrder }}
         >
           {contentBlock}
