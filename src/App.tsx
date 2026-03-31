@@ -7,6 +7,7 @@ import BlogPost from './pages/BlogPost';
 import Events from './pages/Events';
 import AboutUs from './pages/AboutUs';
 import BoardOfDirectors from './pages/BoardOfDirectors';
+import Partners from './pages/Partners';
 import Photos from './pages/Photos';
 // import Donations from './pages/Donations';
 import Joining from './pages/Joining';
@@ -27,6 +28,7 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/board-of-directors" element={<BoardOfDirectors />} />
+          <Route path="/partners" element={<Partners />} />
           <Route path="/photos" element={<Photos />} />
           {/* <Route path="/donations" element={<Donations />} /> */}
           <Route path="/joining" element={<Joining />} />

@@ -1,7 +1,6 @@
 import Section from '../components/Section';
 import kennyTennis4 from '../assets/images/tennis-images/Kenny Tennis 4.JPG';
 import kennyTennis6 from '../assets/images/tennis-images/Kenny Tennis 6.JPG';
-import kennyTennis10 from '../assets/images/tennis-images/Kenny Tennis 10.JPG';
 import tennisDersBackhand from '../assets/images/tennis-images/Tennis Ders Backhand.JPG';
 
 export default function AboutUs() {
@@ -62,27 +61,6 @@ export default function AboutUs() {
           </div>
         </Section>
 
-        {/* Partners */}
-        <Section
-          title="Our Partners"
-          id="partners"
-          image={kennyTennis10}
-          imagePosition="right"
-        >
-          <div className="font-open text-base leading-7 text-white" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            {/* <p><strong>Northern Minnesota Tennis Association (NMTA):</strong> MTPC is proud to partner with NMTA as a volunteer organization. NMTA provides matching sponsorship support for our charitable events benefiting Minneapolis Clay courts and youth tennis programs.</p> */}
-            <p><strong>InnerCity Tennis Foundation of Minneapolis:</strong> Serving 6,000 kids annually since 1973 across 22 public parks.</p>
-            <p><strong>Saint Paul Urban Tennis (SPUT):</strong> Transforming lives of youth in underserved communities since 1991.</p>
-            <p><strong>Thunder Bay Ontario Tennis:</strong> Reciprocal inclusion in events including the Mid Canada Tennis Classic.</p>
-          </div>
-        </Section>
-
-        {/* Board */}
-        <Section title="Leadership" variant="secondary" id="leadership">
-          <p className="font-open text-base leading-7 text-black" style={{ marginBottom: '24px' }}>
-            MTPC is led by a dedicated board of 8 members who organize activities, manage partnerships, and drive our community initiatives. Regular board meetings ensure we continue to serve our members and the broader tennis community effectively.
-          </p>
-        </Section>
     </div>
   );
 }
