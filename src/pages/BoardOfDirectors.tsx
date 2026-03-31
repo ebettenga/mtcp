@@ -122,12 +122,12 @@ export default function BoardOfDirectors() {
           {boardMembers.map((member) => (
             <article
               key={member.name}
+              className="flex flex-col md:flex-row"
               style={{
                 border: '1px solid #e5e7eb',
                 borderRadius: '12px',
                 backgroundColor: '#fff',
                 overflow: 'hidden',
-                display: 'flex',
                 alignItems: 'stretch',
               }}
             >
@@ -135,7 +135,8 @@ export default function BoardOfDirectors() {
                 <img
                   src={member.photo}
                   alt={`${member.name}`}
-                  style={{ width: '240px', minWidth: '240px', height: '240px', objectFit: 'cover' }}
+                  className="h-[220px] w-full md:h-[240px] md:w-[240px] md:min-w-[240px]"
+                  style={{ objectFit: 'cover' }}
                 />
               )}
               <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '10px', flex: 1 }}>
@@ -151,11 +152,29 @@ export default function BoardOfDirectors() {
                 </div>
                 <div>
                   <p className="font-albert text-sm font-semibold text-black">What MTPC Means to Me</p>
-                  <p className="font-open text-sm leading-6 text-black">{member.mtpcMeans}</p>
+                  {member.mtpcMeans ? (
+                    <details>
+                      <summary className="font-open cursor-pointer text-sm font-medium text-[#123a6e]">
+                        Read response
+                      </summary>
+                      <p className="font-open mt-2 text-sm leading-6 text-black">{member.mtpcMeans}</p>
+                    </details>
+                  ) : (
+                    <p className="font-open text-sm leading-6 text-black">{member.mtpcMeans}</p>
+                  )}
                 </div>
                 <div>
                   <p className="font-albert text-sm font-semibold text-black">Tennis GOAT Pick</p>
-                  <p className="font-open text-sm leading-6 text-black">{member.goatPick}</p>
+                  {member.goatPick ? (
+                    <details>
+                      <summary className="font-open cursor-pointer text-sm font-medium text-[#123a6e]">
+                        Read response
+                      </summary>
+                      <p className="font-open mt-2 text-sm leading-6 text-black">{member.goatPick}</p>
+                    </details>
+                  ) : (
+                    <p className="font-open text-sm leading-6 text-black">{member.goatPick}</p>
+                  )}
                 </div>
               </div>
             </article>

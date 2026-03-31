@@ -40,6 +40,14 @@ export default function Home() {
       {/* Hero Carousel */}
       <ImageCarousel images={carouselImages} />
 
+      {/* Social Media Links */}
+      <SocialMediaLinks
+        instagramUrl="https://www.instagram.com/mtpc_nation/"
+        xUrl="https://x.com/MTPC_Nation"
+        tiktokUrl="https://www.tiktok.com/@mtpc_nation"
+        facebookUrl="https://www.facebook.com/people/Minnesota-Tennis-Players-Council/100045854246387/"
+      />
+
       {/* Mission Section */}
       <Section
         title="Tennis is What We Are, Fun is How We Do It"
@@ -103,14 +111,6 @@ export default function Home() {
 
       {/* Sponsors */}
       <SponsorsBanner />
-
-      {/* Social Media Links */}
-      <SocialMediaLinks
-        instagramUrl="https://www.instagram.com/mtpc_nation/"
-        xUrl="https://x.com/MTPC_Nation"
-        tiktokUrl="https://www.tiktok.com/@mtpc_nation"
-        facebookUrl="https://www.facebook.com/people/Minnesota-Tennis-Players-Council/100045854246387/"
-      />
     </div>
   );
 }
