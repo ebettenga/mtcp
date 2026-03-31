@@ -1,4 +1,4 @@
-import nsmtaLogo from '../assets/sponsors/NSMTA.jpg';
+import nmtaLogo from '../assets/sponsors/NMTA.jpg';
 
 interface Sponsor {
   name: string;
@@ -13,8 +13,8 @@ interface SponsorsBannerProps {
 
 const defaultSponsors: Sponsor[] = [
   {
-    name: 'NSMTA',
-    image: nsmtaLogo,
+    name: 'NMTA',
+    image: nmtaLogo,
     url: 'https://www.nsmta.net/',
   },
 ];

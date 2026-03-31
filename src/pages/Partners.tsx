@@ -1,5 +1,5 @@
 import Section from '../components/Section';
-import nsmtaLogo from '../assets/sponsors/NSMTA.jpg';
+import nmtaLogo from '../assets/sponsors/NMTA.jpg';
 
 export default function Partners() {
   return (
@@ -36,14 +36,14 @@ export default function Partners() {
             style={{ alignSelf: 'flex-start' }}
           >
             <img
-              src={nsmtaLogo}
-              alt="NSMTA"
+              src={nmtaLogo}
+              alt="NMTA"
               style={{ width: '220px', maxWidth: '100%', objectFit: 'contain' }}
             />
           </a>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            <h3 className="font-albert text-2xl font-semibold text-black">National Men&apos;s Tennis Association (NSMTA)</h3>
+            <h3 className="font-albert text-2xl font-semibold text-black">National Men&apos;s Tennis Association (NMTA)</h3>
             <p className="font-open text-base leading-7 text-black">
               The National Men&apos;s Tennis Association supports competitive senior men&apos;s tennis across the country,
               promotes the health benefits of participation, helps improve the quality of events, and contributes to
@@ -56,7 +56,7 @@ export default function Partners() {
               className="font-albert text-base font-semibold"
               style={{ color: '#123a6e', textDecoration: 'underline', width: 'fit-content' }}
             >
-              Visit NSMTA
+              Visit NMTA
             </a>
           </div>
         </article>
