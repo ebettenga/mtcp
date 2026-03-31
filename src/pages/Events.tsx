@@ -1,6 +1,5 @@
 import Section from '../components/Section';
 import mtpc2 from '../assets/images/tennis-images/MTPC 2.jpg';
-import kennyTennis15 from '../assets/images/tennis-images/kenny tennis 15.JPG';
 import kennyTennis5 from '../assets/images/tennis-images/Kenny Tennis 5.JPG';
 import kennyTennis7 from '../assets/images/tennis-images/Kenny Tennis 7.JPG';
 
