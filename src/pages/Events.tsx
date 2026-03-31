@@ -25,7 +25,7 @@ export default function Events() {
         <Section title="Events Calendar" variant="secondary">
           <div style={{ width: '100%' }}>
             <p className="font-open text-base leading-7 text-black" style={{ marginBottom: '16px' }}>
-              View all upcoming events below. Update events in Google Calendar and changes will appear here automatically.
+              View all upcoming events below.
             </p>
             <div
               style={{
