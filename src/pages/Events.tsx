@@ -5,7 +5,7 @@ import kennyTennis7 from '../assets/images/tennis-images/Kenny Tennis 7.JPG';
 
 export default function Events() {
   const googleCalendarEmbedUrl =
-    'https://calendar.google.com/calendar/embed?src=mtpctennis%40gmail.com&ctz=America%2FChicago';
+    'https://calendar.google.com/calendar/embed?src=mtpctennis%40gmail.com&ctz=America%2FChicago&mode=MONTH&showTitle=0&showPrint=0&showTabs=0&showCalendars=0';
 
   return (
     <div className="min-h-screen">
@@ -22,15 +22,18 @@ export default function Events() {
 
         {/* Google Calendar */}
         <Section title="Events Calendar" variant="secondary">
-          <div style={{ width: '100%' }}>
+          <div className="relative left-1/2 w-[95vw] max-w-[95vw] -translate-x-1/2 md:left-0 md:w-full md:max-w-full md:translate-x-0">
             <p className="font-open text-base leading-7 text-black" style={{ marginBottom: '16px' }}>
               View all upcoming events below.
             </p>
             <div
+              className="md:mx-auto md:max-w-page"
               style={{
                 position: 'relative',
                 width: '100%',
-                paddingBottom: '75%',
+                height: '72vh',
+                minHeight: '560px',
+                maxHeight: '780px',
                 borderRadius: '12px',
                 overflow: 'hidden',
               }}
