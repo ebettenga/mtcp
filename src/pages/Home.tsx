@@ -1,6 +1,6 @@
 import Section from '../components/Section';
 import ImageCarousel from '../components/ImageCarousel';
-// import SponsorsBanner from '../components/SponsorsBanner';
+import SponsorsBanner from '../components/SponsorsBanner';
 import SocialMediaLinks from '../components/SocialMediaLinks';
 import { getLatestBlogPost } from '../lib/blog';
 import TestimonialsSection from '../components/TestimonialsSection';
@@ -101,9 +101,8 @@ export default function Home() {
         />
       )}
 
-      {/* Sponsors - commented out
+      {/* Sponsors */}
       <SponsorsBanner />
-      */}
 
       {/* Social Media Links */}
       <SocialMediaLinks

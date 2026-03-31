@@ -5,6 +5,9 @@ import kennyTennis5 from '../assets/images/tennis-images/Kenny Tennis 5.JPG';
 import kennyTennis7 from '../assets/images/tennis-images/Kenny Tennis 7.JPG';
 
 export default function Events() {
+  const googleCalendarEmbedUrl =
+    'https://calendar.google.com/calendar/embed?src=mtpctennis%40gmail.com&ctz=America%2FChicago';
+
   return (
     <div className="min-h-screen">
       {/* Hero */}
@@ -18,25 +21,27 @@ export default function Events() {
           </p>
         </Section>
 
-        {/* Upcoming Fundraising Events */}
-        <Section
-          title="Upcoming Fundraising Events"
-          variant="secondary"
-          image={kennyTennis15}
-          imagePosition="right"
-        >
-          <div className="font-open text-base leading-7 text-black" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            <div>
-              <h3 className="font-albert text-xl font-semibold text-black" style={{ marginBottom: '8px' }}>Minneapolis Clay Benefit Event</h3>
-              <p>Join us for a special fundraising event benefiting Minneapolis Clay tennis courts. Held at Lakeville or White Bear in April, this event features competitive play with a player fee and donation component.</p>
-            </div>
-            <div>
-              <h3 className="font-albert text-xl font-semibold text-black" style={{ marginBottom: '8px' }}>Annual Holiday Mixer</h3>
-              <p>Our signature annual event raising funds for Inner City Tennis. A great opportunity to celebrate the season while supporting youth tennis in Minneapolis.</p>
-            </div>
-            <div>
-              <h3 className="font-albert text-xl font-semibold text-black" style={{ marginBottom: '8px' }}>St. Paul Urban Tennis Golf Event</h3>
-              <p>Annual support of tennis development through SPUT's fundraising golf event.</p>
+        {/* Google Calendar */}
+        <Section title="Events Calendar" variant="secondary">
+          <div style={{ width: '100%' }}>
+            <p className="font-open text-base leading-7 text-black" style={{ marginBottom: '16px' }}>
+              View all upcoming events below. Update events in Google Calendar and changes will appear here automatically.
+            </p>
+            <div
+              style={{
+                position: 'relative',
+                width: '100%',
+                paddingBottom: '75%',
+                borderRadius: '12px',
+                overflow: 'hidden',
+              }}
+            >
+              <iframe
+                title="MTPC Events Google Calendar"
+                src={googleCalendarEmbedUrl}
+                style={{ border: 0, position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                loading="lazy"
+              />
             </div>
           </div>
         </Section>
@@ -99,7 +104,11 @@ export default function Events() {
         {/* Get Involved */}
         <Section title="Event T-Shirts & Gear" variant="secondary">
           <p className="font-open text-base leading-7 text-black">
-            Show your Kenny Tenny pride! Event t-shirts are available for fundraising events and special occasions. Contact us to learn more about getting your MTPC gear.
+            Show your Kenny Tenny pride! Event t-shirts are available for fundraising events and special occasions.{' '}
+            <a href="mailto:mtpctennis@gmail.com" className="underline">
+              Contact us
+            </a>{' '}
+            to learn more about getting your MTPC gear.
           </p>
         </Section>
     </div>

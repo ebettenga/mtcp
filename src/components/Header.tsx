@@ -9,7 +9,7 @@ interface HeaderProps {
 const aboutUsMenuItems = [
   { label: 'Who We Are', path: '/about-us#who-we-are' },
   { label: 'Community Impact', path: '/about-us#community-impact' },
-  { label: 'Board of Directors', path: '/about-us#leadership' },
+  { label: 'Board of Directors', path: '/board-of-directors' },
   { label: 'Partners', path: '/about-us#partners' },
 ];
 

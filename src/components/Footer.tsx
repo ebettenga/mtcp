@@ -24,14 +24,14 @@ export default function Footer() {
 
   return (
     <footer className="bg-primary-500 text-white">
-      <div className="mx-auto max-w-page" style={{ padding: '48px 32px 32px' }}>
+      <div className="mx-auto max-w-page" style={{ padding: '64px 48px 48px' }}>
         {/* Main footer content */}
-        <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+        <div className="flex flex-col gap-12 md:flex-row md:items-start md:justify-between">
           {/* Left side: links + info */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-10">
             {!isHome && (
               <nav aria-label="Footer navigation">
-                <ul className="flex flex-wrap gap-x-6 gap-y-3">
+                <ul className="flex flex-wrap gap-x-8 gap-y-4">
                   {navLinks.map((link) => (
                     <li key={link.path}>
                       <Link
@@ -55,7 +55,7 @@ export default function Footer() {
             )}
 
             {/* Social icons */}
-            <div className="flex gap-4">
+            <div className="flex gap-6 pb-5">
               <a
                 href={socialLinks.instagram}
                 target="_blank"
@@ -117,17 +117,17 @@ export default function Footer() {
               <img
                 src={logo}
                 alt="MTPC Logo"
-                className="h-16 w-auto brightness-0 invert"
+                className="h-16 w-auto rounded-full bg-white/90 p-1"
               />
             </Link>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="my-6 h-px w-full bg-white/20" />
+        <div className="mt-10 mb-8 h-px w-full md:w-3/4 bg-white/20" />
 
         {/* Copyright */}
-        <p className="font-open text-xs text-white/50">
+        <p className="font-open text-sm text-white/50">
           &copy; {new Date().getFullYear()} Minnesota Tennis Players Council. All rights reserved.
         </p>
       </div>

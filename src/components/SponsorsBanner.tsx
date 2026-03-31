@@ -1,4 +1,4 @@
-import wilsonLogo from '../assets/sponsors/Wilson-logo.svg';
+import nsmtaLogo from '../assets/sponsors/NSMTA.jpg';
 
 interface Sponsor {
   name: string;
@@ -13,8 +13,9 @@ interface SponsorsBannerProps {
 
 const defaultSponsors: Sponsor[] = [
   {
-    name: 'Wilson',
-    image: wilsonLogo,
+    name: 'NSMTA',
+    image: nsmtaLogo,
+    url: 'https://www.nsmta.net/',
   },
 ];
 
@@ -34,26 +35,46 @@ export default function SponsorsBanner({ sponsors = defaultSponsors, className =
       >
         Our Sponsors
       </h2>
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '32px', flexWrap: 'wrap' }}>
+      <div className="flex flex-wrap justify-center gap-8">
         {sponsors.map((sponsor, index) => {
           const image = (
             <img
               src={sponsor.image}
               alt={sponsor.name}
               style={{ height: '80px', maxWidth: '100%', objectFit: 'contain' }}
-              className="grayscale transition-all hover:grayscale-0"
+              className="grayscale transition-all duration-300 group-hover:grayscale-0"
             />
+          );
+          const sponsorName = (
+            <p className="font-open text-sm font-semibold text-black" style={{ marginTop: '12px' }}>
+              {sponsor.name}
+            </p>
           );
 
           if (sponsor.url) {
             return (
-              <a key={index} href={sponsor.url} target="_blank" rel="noopener noreferrer">
+              <a
+                key={index}
+                href={sponsor.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group rounded-xl border border-black/10 bg-white px-8 py-6 transition-colors duration-300 hover:bg-secondary-500/30"
+              >
                 {image}
+                {sponsorName}
               </a>
             );
           }
 
-          return <div key={index}>{image}</div>;
+          return (
+            <div
+              key={index}
+              className="group rounded-xl border border-black/10 bg-white px-8 py-6 transition-colors duration-300 hover:bg-secondary-500/30"
+            >
+              {image}
+              {sponsorName}
+            </div>
+          );
         })}
       </div>
     </section>
