@@ -1,13 +1,15 @@
 import type { BlogPostData } from '../lib/blog';
+import brianValleyPhoto from '../assets/members/Valley.jpg';
 
 const post: BlogPostData = {
   slug: 'kenny-tenny-tennis-is-what-we-are',
   title: 'Kenny Tenny: Tennis is What We Are, Fun is How We Do It',
   description:
     'The story of Ken Cychosz and how one of the largest independent tennis communities in the Twin Cities grew from a court that didn\'t even have a net—and why tennis is what we are, and fun is how we do it.',
-  authorName: 'MTPC',
+  authorName: 'Brian Valley',
+  authorImage: brianValleyPhoto,
   authorBio:
-    'Minnesota Tennis Players Council (MTPC)—Kenny Tenny—is a community-driven adult tennis collective serving the Twin Cities.',
+    'Brian Valley is Chief Business Officer of MTPC (Kenny Tenny) and a tennis instructor at Life Time Fitness in the Twin Cities. He has worked in tennis for more than two decades and believes the game grows when we focus on people and opportunity—not spreadsheets alone. MTPC, for him, is about doing what you love with the people you love and opening doors for anyone who wants to play.',
   publishedDate: 'March 5, 2026',
   content: `Imagine growing up in a town where the only accessible tennis court doesn't even have a net—just a chain-link fence stretched across the middle and cracks in the asphalt as far as the eye can see. It sounds improbable that such a place could produce a player of the highest caliber. Yet overcoming obstacles is often what defines greatness, and **Ken Cychosz** is living proof.
 
