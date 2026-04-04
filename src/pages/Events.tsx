@@ -1,4 +1,5 @@
 import Section from '../components/Section';
+import DoublesDerbyPromo from '../components/DoublesDerbyPromo';
 import mtpc2 from '../assets/images/tennis-images/MTPC 2.jpg';
 import kennyTennis5 from '../assets/images/tennis-images/Kenny Tennis 5.JPG';
 import kennyTennis7 from '../assets/images/tennis-images/Kenny Tennis 7.JPG';
@@ -19,6 +20,8 @@ export default function Events() {
             Join us for regular doubles sessions, league play, and community events. From summer grill outs to winter indoor play, there's always something happening at Kenny Tenny. Group trips to regional and national tournaments—join the adventure!
           </p>
         </Section>
+
+        <DoublesDerbyPromo />
 
         {/* Google Calendar */}
         <Section title="Events Calendar" variant="secondary">

@@ -2,6 +2,7 @@ import Section from '../components/Section';
 import ImageCarousel from '../components/ImageCarousel';
 import SponsorsBanner from '../components/SponsorsBanner';
 import SocialMediaLinks from '../components/SocialMediaLinks';
+import DoublesDerbyPromo from '../components/DoublesDerbyPromo';
 import { getLatestBlogPost } from '../lib/blog';
 import TestimonialsSection from '../components/TestimonialsSection';
 import { useNavigate } from 'react-router-dom';
@@ -47,6 +48,8 @@ export default function Home() {
         tiktokUrl="https://www.tiktok.com/@mtpc_nation"
         facebookUrl="https://www.facebook.com/people/Minnesota-Tennis-Players-Council/100045854246387/"
       />
+
+      <DoublesDerbyPromo />
 
       {/* Mission Section */}
       <Section
