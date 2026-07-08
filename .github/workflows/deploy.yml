@@ -31,6 +31,16 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Write donations config
+        env:
+          DONATIONS_CONFIG_JSON: ${{ secrets.DONATIONS_CONFIG_JSON }}
+        run: |
+          if [ -n "$DONATIONS_CONFIG_JSON" ]; then
+            printf '%s' "$DONATIONS_CONFIG_JSON" > src/config/donations.config.json
+          else
+            node scripts/ensure-donations-config.mjs
+          fi
+
       - name: Set base path
         id: base_path
         run: |
@@ -41,6 +51,9 @@ jobs:
         run: yarn build
         env:
           VITE_BASE: ${{ steps.base_path.outputs.base }}
+          VITE_STRIPE_LINK_ONETIME: ${{ secrets.VITE_STRIPE_LINK_ONETIME }}
+          VITE_STRIPE_LINK_MONTHLY: ${{ secrets.VITE_STRIPE_LINK_MONTHLY }}
+          VITE_CHARIOT_CID: ${{ secrets.VITE_CHARIOT_CID }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
