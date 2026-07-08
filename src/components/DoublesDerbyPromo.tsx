@@ -1,4 +1,4 @@
-import doublesDerbyFlyer from '../assets/images/promotionals/doubles-derby-flyer.png';
+import fundraiserFlyer from '../assets/images/promotionals/mtpc_flyer_002.png';
 
 export default function DoublesDerbyPromo() {
   return (
@@ -6,33 +6,32 @@ export default function DoublesDerbyPromo() {
       <div className="mx-auto max-w-page">
         <div className="bg-white px-8 pt-2 pb-0 md:px-16 md:pt-4 md:pb-0">
           <h2 className="mb-5 font-albert text-2xl font-semibold text-black md:mb-6 md:text-4xl">
-            First Annual MTPC Doubles Derby
+            MTPC Fundraiser Benefitting SPUT
           </h2>
           <p className="mb-14 font-open text-base leading-7 text-black md:mb-16">
-            Minnesota Tennis Players Council, in partnership with the National Men&apos;s Tennis Association, invites you
-            to the first annual Doubles Derby Team Tournament benefiting Minneapolis Community Clay Courts. Top Twin Cities
-            players, fast doubles format, food and drinks—Saturday, April 25, 4–8 p.m. at Life Time White Bear Lake ($50 per
-            player). For more on the clay courts or to donate, visit{' '}
+            Minnesota Tennis Players Council invites you to a doubles team tournament benefiting Saint Paul Urban Tennis.
+            Sixteen teams, three matches guaranteed, and a championship final—Saturday, August 29, 3–7 p.m. at White Bear
+            Yacht Club ($100 per team, $50 per player). Learn more about SPUT at{' '}
             <a
-              href="https://letsplayclay.org/"
+              href="https://www.stpaulurbantennis.org/"
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium text-[#123a6e] underline hover:opacity-80"
             >
-              LetsPlayClay.org
+              stpaulurbantennis.org
             </a>
             .
           </p>
           <div className="flex flex-col items-center pt-12">
             <a
-              href="https://letsplayclay.org/"
+              href="https://www.stpaulurbantennis.org/"
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full max-w-[420px]"
             >
               <img
-                src={doublesDerbyFlyer}
-                alt="Flyer: First Annual MTPC Doubles Derby Team Tournament, April 25 at Life Time White Bear Lake, benefiting Minneapolis Community Clay Courts. Partnership with National Men's Tennis Association."
+                src={fundraiserFlyer}
+                alt="Flyer: MTPC Fundraiser Benefitting SPUT, August 29, 2026 at White Bear Yacht Club. 16 teams, $100 per team, waterfall group stage format with $50 prize for each champion."
                 className="w-full rounded-xl border border-gray-200 shadow-md"
               />
             </a>
