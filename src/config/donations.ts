@@ -1,4 +1,6 @@
 import rawConfig from './donations.config.json';
+import venmoQrCode from '../assets/qr_codes/venmo_qr.png';
+import zelleQrCode from '../assets/qr_codes/zelle_qr.jpg';
 
 export interface DonationsConfig {
   organization: {
@@ -25,9 +27,11 @@ export interface DonationsConfig {
   venmo: {
     handle: string;
     url: string;
+    qrCode: string;
   };
   zelle: {
     emailOrPhone: string;
+    qrCode: string;
   };
   daf: {
     grantDesignation: string;
@@ -46,6 +50,14 @@ const config = rawConfig as DonationsConfig;
 
 export const donationsConfig: DonationsConfig = {
   ...config,
+  venmo: {
+    ...config.venmo,
+    qrCode: config.venmo.qrCode?.trim() || venmoQrCode,
+  },
+  zelle: {
+    ...config.zelle,
+    qrCode: config.zelle.qrCode?.trim() || zelleQrCode,
+  },
   stripe: {
     oneTimePaymentLink: envOrValue('VITE_STRIPE_LINK_ONETIME', config.stripe.oneTimePaymentLink),
     monthlyPaymentLink: envOrValue('VITE_STRIPE_LINK_MONTHLY', config.stripe.monthlyPaymentLink),
@@ -72,7 +84,15 @@ export function isChariotConfigured(): boolean {
 }
 
 export function isZelleConfigured(): boolean {
-  return Boolean(donationsConfig.zelle.emailOrPhone);
+  return Boolean(donationsConfig.zelle.emailOrPhone || donationsConfig.zelle.qrCode);
+}
+
+export function hasVenmoQrCode(): boolean {
+  return Boolean(donationsConfig.venmo.qrCode);
+}
+
+export function hasZelleQrCode(): boolean {
+  return Boolean(donationsConfig.zelle.qrCode);
 }
 
 export function isOrganizationConfigured(): boolean {

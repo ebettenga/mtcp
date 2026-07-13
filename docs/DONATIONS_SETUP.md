@@ -25,12 +25,12 @@ Fill in `donations.config.json` with your real values before going live.
 {
   "organization": {
     "legalName": "Minnesota Tennis Players Council",
-    "ein": "XX-XXXXXXX",
+    "ein": "41-4339151",
     "mailingAddress": {
-      "street": "123 Example St",
-      "city": "St. Paul",
+      "street": "12700 Emmer Place",
+      "city": "Apple Valley",
       "state": "MN",
-      "zip": "55106"
+      "zip": "55124"
     },
     "checkPayableTo": "Minnesota Tennis Players Council",
     "receiptEmail": "mtpctennis@gmail.com",
@@ -38,18 +38,20 @@ Fill in `donations.config.json` with your real values before going live.
     "receiptNote": "No goods or services were provided in exchange for this contribution."
   },
   "stripe": {
-    "oneTimePaymentLink": "https://buy.stripe.com/...",
-    "monthlyPaymentLink": "https://buy.stripe.com/..."
+    "oneTimePaymentLink": "",
+    "monthlyPaymentLink": ""
   },
   "chariot": {
-    "connectId": "your-chariot-cid"
+    "connectId": ""
   },
   "venmo": {
     "handle": "MTPC",
-    "url": "https://venmo.com/MTPC"
+    "url": "https://venmo.com/MTPC",
+    "qrCode": ""
   },
   "zelle": {
-    "emailOrPhone": "donations@example.com"
+    "emailOrPhone": "",
+    "qrCode": ""
   },
   "daf": {
     "grantDesignation": "General support / youth tennis programs"
@@ -106,6 +108,12 @@ No backend or secret keys are needed in this repo. Use **Stripe Payment Links**.
 4. The DAF widget appears automatically on the Donations page
 
 DAF donors receive grant confirmations from Chariot and their DAF sponsor. These are acknowledgments, not new tax receipts (the donor already received a deduction when funding the DAF).
+
+## Venmo and Zelle QR codes
+
+Default QR images live in `src/assets/qr_codes/` (`venmo_qr.png`, `zelle_qr.jpg`) and are used automatically.
+
+Optional overrides: set `venmo.qrCode` or `zelle.qrCode` in `donations.config.json` to a public URL or custom asset path. Leave them blank to use the defaults.
 
 ## Manual methods (Venmo / Zelle / check)
 

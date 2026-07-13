@@ -1,12 +1,12 @@
 {
   "organization": {
     "legalName": "Minnesota Tennis Players Council",
-    "ein": "",
+    "ein": "41-4339151",
     "mailingAddress": {
-      "street": "",
-      "city": "",
+      "street": "12700 Emmer Place",
+      "city": "Apple Valley",
       "state": "MN",
-      "zip": ""
+      "zip": "55124"
     },
     "checkPayableTo": "Minnesota Tennis Players Council",
     "receiptEmail": "mtpctennis@gmail.com",
@@ -22,10 +22,12 @@
   },
   "venmo": {
     "handle": "MTPC",
-    "url": "https://venmo.com/MTPC"
+    "url": "https://venmo.com/MTPC",
+    "qrCode": ""
   },
   "zelle": {
-    "emailOrPhone": ""
+    "emailOrPhone": "",
+    "qrCode": ""
   },
   "daf": {
     "grantDesignation": "General support / youth tennis programs"

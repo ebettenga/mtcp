@@ -2,9 +2,12 @@ import Section from '../components/Section';
 import DonationMethodCard from '../components/DonationMethodCard';
 import CopyButton from '../components/CopyButton';
 import ChariotDafWidget from '../components/ChariotDafWidget';
+import PaymentQrCode from '../components/PaymentQrCode';
 import {
   donationsConfig,
   formatMailingAddress,
+  hasVenmoQrCode,
+  hasZelleQrCode,
   isChariotConfigured,
   isOrganizationConfigured,
   isStripeConfigured,
@@ -47,26 +50,14 @@ function DonateButton({ href, label }: { href: string; label: string }) {
   );
 }
 
-function GrantDetailRow({ label, value }: { label: string; value: string }) {
-  if (!value) return null;
-
-  return (
-    <div className="flex flex-col gap-2 rounded-lg bg-gray-50 p-4 sm:flex-row sm:items-center sm:justify-between">
-      <div>
-        <p className="font-albert text-sm font-semibold text-[#123a6e]">{label}</p>
-        <p className="font-open text-base text-black">{value}</p>
-      </div>
-      <CopyButton value={value} />
-    </div>
-  );
-}
-
 export default function Donations() {
-  const { organization, stripe, venmo, zelle, daf } = donationsConfig;
+  const { organization, stripe, venmo, zelle } = donationsConfig;
   const mailingAddress = formatMailingAddress();
   const stripeConfigured = isStripeConfigured();
   const chariotConfigured = isChariotConfigured();
   const zelleConfigured = isZelleConfigured();
+  const venmoQrCode = hasVenmoQrCode();
+  const zelleQrCode = hasZelleQrCode();
   const orgConfigured = isOrganizationConfigured();
   const receiptMailto = `mailto:${organization.receiptEmail}`;
 
@@ -111,9 +102,18 @@ export default function Donations() {
             title="Venmo"
             description="Send your gift through Venmo and include your name plus “MTPC donation” in the payment note."
             action={
-              <DonateButton href={venmo.url} label={`Donate with Venmo (@${venmo.handle})`} />
+              !venmoQrCode ? (
+                <DonateButton href={venmo.url} label={`Donate with Venmo (@${venmo.handle})`} />
+              ) : undefined
             }
           >
+            {venmoQrCode && (
+              <PaymentQrCode
+                src={venmo.qrCode}
+                alt={`Venmo QR code for @${venmo.handle}`}
+                caption="Scan with the Venmo app to send your gift."
+              />
+            )}
             <p className="font-open text-sm text-gray-700">
               Note: Venmo does not issue tax receipts on its own. We will email a receipt after your gift is received.
             </p>
@@ -123,7 +123,9 @@ export default function Donations() {
             title="Zelle"
             description={
               zelleConfigured
-                ? 'Send your gift via Zelle using the contact below. Include your name and “MTPC donation” in the memo.'
+                ? zelleQrCode
+                  ? 'Scan the QR code below in your banking app’s Zelle scanner. Include your name and “MTPC donation” in the memo.'
+                  : 'Send your gift via Zelle using the contact below. Include your name and “MTPC donation” in the memo.'
                 : 'Contact us to give by Zelle.'
             }
             action={
@@ -134,13 +136,21 @@ export default function Donations() {
               ) : undefined
             }
           >
-            {zelleConfigured && (
-              <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                <p className="font-open text-base text-black">
-                  <strong>Zelle:</strong> {zelle.emailOrPhone}
-                </p>
-                <CopyButton value={zelle.emailOrPhone} />
-              </div>
+            {zelleQrCode ? (
+              <PaymentQrCode
+                src={zelle.qrCode}
+                alt="Zelle QR code for MTPC"
+                caption="Open Zelle in your banking app, choose Send, then scan this code."
+              />
+            ) : (
+              zelle.emailOrPhone && (
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="font-open text-base text-black">
+                    <strong>Zelle:</strong> {zelle.emailOrPhone}
+                  </p>
+                  <CopyButton value={zelle.emailOrPhone} />
+                </div>
+              )
             )}
           </DonationMethodCard>
 
@@ -191,52 +201,34 @@ export default function Donations() {
         </Section>
       )}
 
-      <Section title="Donor-Advised Funds" variant="secondary" image={mtpc2} imagePosition="right">
-        <div className="font-open text-base leading-7 text-black" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <p>
-            Recommend a grant from your donor-advised fund to support MTPC. DAF gifts are a tax-smart way to give,
-            especially for larger or planned contributions.
-          </p>
-
-          {chariotConfigured && (
-            <>
-              <p>Use the button below to connect your DAF provider and recommend a grant in a few steps:</p>
-              <ol className="list-decimal space-y-2 pl-5">
-                <li>Select your DAF provider and sign in</li>
-                <li>Enter your desired grant amount</li>
-                <li>Confirm your contact information for grant records</li>
-                <li>Submit your grant recommendation</li>
-              </ol>
-              <ChariotDafWidget connectId={donationsConfig.chariot.connectId} />
-            </>
-          )}
-
-          <div>
-            <h3 className="font-albert text-xl font-semibold text-[#123a6e]" style={{ marginBottom: '12px' }}>
-              Manual DAF Instructions
-            </h3>
-            <p style={{ marginBottom: '16px' }}>
-              If your DAF sponsor is not listed above, log into your DAF account and recommend a grant using these
-              details:
+      {chariotConfigured && (
+        <Section title="Donor-Advised Funds" variant="secondary" image={mtpc2} imagePosition="right">
+          <div
+            className="font-open text-base leading-7 text-black"
+            style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
+          >
+            <p>
+              Recommend a grant from your donor-advised fund to support MTPC. DAF gifts are a tax-smart way to give,
+              especially for larger or planned contributions.
             </p>
-            <div className="space-y-3">
-              <GrantDetailRow label="Legal name" value={organization.legalName} />
-              <GrantDetailRow label="EIN" value={organization.ein} />
-              <GrantDetailRow label="Mailing address" value={mailingAddress} />
-              <GrantDetailRow label="Grant purpose" value={daf.grantDesignation} />
-            </div>
+            <p>Select your DAF provider below to sign in and recommend a grant:</p>
+            <ol className="list-decimal space-y-2 pl-5">
+              <li>Select your DAF provider and sign in</li>
+              <li>Enter your desired grant amount</li>
+              <li>Confirm your contact information for grant records</li>
+              <li>Submit your grant recommendation</li>
+            </ol>
+            <ChariotDafWidget connectId={donationsConfig.chariot.connectId} />
+            <p className="text-sm text-gray-700">
+              Your DAF sponsor will email a grant confirmation after your recommendation is processed. For help, contact{' '}
+              <a href={`mailto:${organization.receiptEmail}`} className="font-medium text-[#123a6e] underline">
+                {organization.receiptEmail}
+              </a>
+              .
+            </p>
           </div>
-
-          <p className="text-sm text-gray-700">
-            DAF grants are typically acknowledged by your DAF sponsor at the time you funded the DAF. Chariot and your
-            sponsor will email grant confirmations; MTPC can also send an acknowledgment upon request at{' '}
-            <a href={`mailto:${organization.receiptEmail}`} className="font-medium text-[#123a6e] underline">
-              {organization.receiptEmail}
-            </a>
-            .
-          </p>
-        </div>
-      </Section>
+        </Section>
+      )}
 
       <Section title="Tax-Deductible Giving">
         <div className="font-open text-base leading-7 text-white" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>

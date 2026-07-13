@@ -1,5 +1,6 @@
 import Section from '../components/Section';
 import brauerPhoto from '../assets/members/Brauer.jpg';
+import ethanPhoto from '../assets/members/Ethan.jpeg';
 import heunischPhoto from '../assets/members/Heunisch.jpg';
 import samCychoszPhoto from '../assets/members/S Cychosz.jpg';
 import valleyPhoto from '../assets/members/Valley.jpg';
@@ -40,6 +41,7 @@ const boardMembers: BoardMember[] = [
     address: '13385 Yosemite Ave S\nSavage, MN 55378',
     mtpcMeans: '',
     goatPick: '',
+    photo: ethanPhoto,
   },
   {
     name: 'Neil Rademacher',
