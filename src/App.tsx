@@ -9,7 +9,8 @@ import AboutUs from './pages/AboutUs';
 import BoardOfDirectors from './pages/BoardOfDirectors';
 import Partners from './pages/Partners';
 import Photos from './pages/Photos';
-// import Donations from './pages/Donations';
+import Donations from './pages/Donations';
+import DonationThanks from './pages/DonationThanks';
 import Joining from './pages/Joining';
 import Links from './pages/Links';
 
@@ -30,7 +31,8 @@ function App() {
           <Route path="/board-of-directors" element={<BoardOfDirectors />} />
           <Route path="/partners" element={<Partners />} />
           <Route path="/photos" element={<Photos />} />
-          {/* <Route path="/donations" element={<Donations />} /> */}
+          <Route path="/donations" element={<Donations />} />
+          <Route path="/donate/thanks" element={<DonationThanks />} />
           <Route path="/joining" element={<Joining />} />
           <Route path="/links" element={<Links />} />
           <Route path="*" element={<Navigate to="/" replace />} />

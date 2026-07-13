@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Local donation config (copy from donations.config.example.json)
+src/config/donations.config.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
