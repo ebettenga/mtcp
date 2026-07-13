@@ -15,14 +15,14 @@ export default function SectionWhite({
   const contentOrder = imagePosition === 'right' ? 1 : 2;
 
   const contentBlock = (
-    <div className="flex min-h-0 flex-1 flex-col bg-white px-8 py-14 md:px-16 md:py-20">
+    <div className="flex min-h-0 flex-1 flex-col gap-10 bg-white px-8 py-14 md:gap-12 md:px-16 md:py-20">
       {title != null && (typeof title !== 'string' || title !== '') && (
-        <h2 className="font-albert text-2xl font-semibold text-black md:text-4xl mb-8">
+        <h2 className="font-albert text-2xl font-semibold text-black md:text-4xl">
           {title}
         </h2>
       )}
       {text != null && text !== '' && (
-        <p className="font-open text-base pt-4 leading-7 text-black mb-6">
+        <p className="font-open text-base leading-7 text-black">
           {text}
         </p>
       )}

@@ -255,7 +255,7 @@ export default function Donations() {
       <Section title="Beyond Cash" variant="secondary" image={kennyTennis8} imagePosition="left">
         <div className="font-open text-base leading-7 text-black" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <div>
-            <h3 className="font-albert text-xl font-semibold text-black" style={{ marginBottom: '8px' }}>
+            <h3 className="font-albert text-xl font-semibold text-black" style={{ marginBottom: '16px' }}>
               In-Kind Donations
             </h3>
             <p>
@@ -264,7 +264,7 @@ export default function Donations() {
             </p>
           </div>
           <div>
-            <h3 className="font-albert text-xl font-semibold text-black" style={{ marginBottom: '8px' }}>
+            <h3 className="font-albert text-xl font-semibold text-black" style={{ marginBottom: '16px' }}>
               Employer Matching
             </h3>
             <p>
@@ -273,7 +273,7 @@ export default function Donations() {
             </p>
           </div>
           <div>
-            <h3 className="font-albert text-xl font-semibold text-black" style={{ marginBottom: '8px' }}>
+            <h3 className="font-albert text-xl font-semibold text-black" style={{ marginBottom: '16px' }}>
               Event Fundraisers
             </h3>
             <p>
