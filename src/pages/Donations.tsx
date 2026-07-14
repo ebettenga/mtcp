@@ -102,16 +102,14 @@ export default function Donations() {
             title="Venmo"
             description="Send your gift through Venmo and include your name plus “MTPC donation” in the payment note."
             action={
-              !venmoQrCode ? (
-                <DonateButton href={venmo.url} label={`Donate with Venmo (@${venmo.handle})`} />
-              ) : undefined
+              <DonateButton href={venmo.url} label={`Donate with Venmo (@${venmo.handle})`} />
             }
           >
             {venmoQrCode && (
               <PaymentQrCode
                 src={venmo.qrCode}
                 alt={`Venmo QR code for @${venmo.handle}`}
-                caption="Scan with the Venmo app to send your gift."
+                caption="Scan with the Venmo app to send your gift, or use the link below on desktop."
               />
             )}
             <p className="font-open text-sm text-gray-700">

@@ -45,8 +45,8 @@ Fill in `donations.config.json` with your real values before going live.
     "connectId": ""
   },
   "venmo": {
-    "handle": "MTPC",
-    "url": "https://venmo.com/MTPC",
+    "handle": "mtpc2026tennis",
+    "url": "https://www.venmo.com/u/mtpc2026tennis",
     "qrCode": ""
   },
   "zelle": {
