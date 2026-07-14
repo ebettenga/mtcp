@@ -18,7 +18,7 @@ export default function DonationMethodCard({
       <h3 className="font-albert text-xl font-semibold text-[#123a6e]">{title}</h3>
       <p className="mt-4 font-open text-base leading-7 text-black">{description}</p>
       {children != null && <div className="mt-4 space-y-3">{children}</div>}
-      {action != null && <div className="mt-5">{action}</div>}
+      {action != null && <div className="my-6">{action}</div>}
     </div>
   );
 }
