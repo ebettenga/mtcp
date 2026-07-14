@@ -10,7 +10,7 @@ export default function PaymentQrCode({ src, alt, caption }: PaymentQrCodeProps)
       <img
         src={src}
         alt={alt}
-        className="h-48 w-48 rounded-lg border border-gray-200 bg-white p-2 shadow-sm"
+        className="aspect-square w-full max-w-[36rem] rounded-lg border border-gray-200 bg-white p-2 shadow-sm"
       />
       {caption != null && caption !== '' && (
         <p className="font-open text-sm text-gray-700">{caption}</p>
